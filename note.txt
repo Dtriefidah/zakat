@@ -1,0 +1,33 @@
+Requirements :
+- Github (create account)
+- GitKraken (download and install)
+- Visual Studio Code (download and install)
+
+Done :
+
+Frontend :
+- Home
+- profil
+- info
+- calculator zakat
+fitrah : masih eror di perhitungan ga bisa keluar hasil
+mal: pertanian
+peternakan
+emas perak
+rikaz
+uang
+perdagangan 
+
+perhitungan sudah oke semua tampilan masih berantakan
+
+- contact
+belum masuk ke database untuk kirim pesan
+
+
+Backend:
+belum sama sekali
+
+yang mau di buat setelah perhitungan zakat selesai lanjut ke pembayaran langsung transfer ke rek GYD 
+
+
+

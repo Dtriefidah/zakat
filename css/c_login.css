@@ -1,0 +1,106 @@
+/* setting main end */
+
+body {
+ background-color:#8cfe8f;
+}
+
+/* setting main end */
+
+/* setting image responsive start */
+
+.imgR img {
+ width:250px;
+ height:80px;
+ padding-top:100px;
+ padding-bottom:20px;
+}
+
+@media (max-width: 1024px) {
+ .imgR img {
+  width:250px;
+ }
+}
+
+@media (max-width:800px) {
+ .imgR img {
+  width:250px;
+ }
+}
+
+@media (max-width:768px) {
+ .imgR img {
+  width:250px;
+ }
+}
+
+@media (max-width:480px) {
+ .imgR img {
+  width:250px;
+ }
+}
+
+/* setting image responsive end */
+
+/* setting container responsive start */
+
+.container {
+ width:360px;
+ height:170px;
+ padding:40px;
+ background:linear-gradient(#fff 20%, #53bd84 70%);
+ border-bottom-left-radius:80px;
+ border-top-right-radius:80px;
+}
+
+@media (max-width:480px) {
+ .container {
+  width:200px;
+  height:200px;
+ }
+}
+
+/* setting container responsive end */
+
+/* setting form input and label start */
+
+input[type=text]{
+ width: 70%;
+ height: 25px;
+ padding: 5px;
+ margin-bottom: 25px;
+ margin-top: 5px;
+ border: 2px solid #ccc;
+ color: #53bd84;
+ font-size: 16px;
+}
+
+input[type=password]{
+ width: 70%;
+ height: 25px;
+ padding: 5px;
+ margin-bottom: 25px;
+ margin-top: 5px;
+ border: 2px solid #ccc;
+ color: #53bd84;
+ font-size: 16px;
+}
+
+input[type=submit]{
+ font-size: 16px;
+ background: linear-gradient(#53bd84 5%, #fff 100%);
+ color: #4E4D4B;
+ font-weight: bold;
+ cursor: pointer;
+ width: 30%;
+ padding: 10px 0;
+ outline:none;
+}
+
+label{
+ color: #3aad6f;
+ text-shadow: 0 1px 0 #000;
+ font-size: 18px;
+ font-weight: bold;
+}
+
+/* setting form input and label end */
