@@ -2,9 +2,11 @@ Remember :
 - password length VARCHAR(32), because hash always 32 character.
 
 Requirements :
-- Github (create account)
-- GitKraken (download and install)
-- Visual Studio Code (download and install)
+- Composer
+- Git
+- Github (create account) (100%)
+- GitKraken (download and install) (100%)
+- Visual Studio Code (download and install) (100%)
 
 Done :
 
