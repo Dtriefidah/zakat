@@ -1,3 +1,6 @@
+Remember :
+- password length VARCHAR(32), because hash always 32 character.
+
 Requirements :
 - Github (create account)
 - GitKraken (download and install)
@@ -16,7 +19,7 @@ peternakan
 emas perak
 rikaz
 uang
-perdagangan 
+perdagangan
 
 perhitungan sudah oke semua tampilan masih berantakan
 
@@ -27,7 +30,4 @@ belum masuk ke database untuk kirim pesan
 Backend:
 belum sama sekali
 
-yang mau di buat setelah perhitungan zakat selesai lanjut ke pembayaran langsung transfer ke rek GYD 
-
-
-
+yang mau di buat setelah perhitungan zakat selesai lanjut ke pembayaran langsung transfer ke rek GYD
