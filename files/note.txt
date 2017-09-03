@@ -2,34 +2,20 @@ Remember :
 - password length VARCHAR(32), because hash always 32 character.
 
 Requirements :
-- Composer
-- Git
+- Composer (100%)
+- Git (100%)
 - Github (create account) (100%)
 - GitKraken (download and install) (100%)
 - Visual Studio Code (download and install) (100%)
 
 Done :
 
-Frontend :
-- Home
-- profil
-- info
-- calculator zakat
-fitrah : masih eror di perhitungan ga bisa keluar hasil
-mal: pertanian
-peternakan
-emas perak
-rikaz
-uang
-perdagangan
-
-perhitungan sudah oke semua tampilan masih berantakan
-
-- contact
-belum masuk ke database untuk kirim pesan
-
-
-Backend:
-belum sama sekali
-
-yang mau di buat setelah perhitungan zakat selesai lanjut ke pembayaran langsung transfer ke rek GYD
+Undone :
+- Backend Login
+- Backend Master Users
+- Backend Master Categories
+- Backend Master Posts
+- Backend Master Questions
+- Backend Master Answers
+- Backend Master Transactions
+- Backend Master Transactions Detail
