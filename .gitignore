@@ -10,4 +10,5 @@ application/logs/*
 !application/logs/.htaccess
 uploads/*
 !uploads/media/
+vendor/*
 web/bower/*
