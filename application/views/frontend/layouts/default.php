@@ -26,24 +26,24 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="<?= site_url('info_1'); ?>">Profile 1</a>
-                        <a class="dropdown-item" href="<?= site_url('info_2'); ?>">Profile 2</a>
+                        <a class="dropdown-item" href="<?= site_url('info_1'); ?>">Sejarah GYD</a>
+                        <a class="dropdown-item" href="<?= site_url('info_2'); ?>">Visi & Misi</a>
                         <a class="dropdown-item" href="<?= site_url('info_3'); ?>">Profile 3</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Info</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="<?= site_url('profile_1'); ?>">Info 1</a>
-                        <a class="dropdown-item" href="<?= site_url('profile_2'); ?>">Info 2</a>
-                        <a class="dropdown-item" href="<?= site_url('profile_3'); ?>">Info 3</a>
+                        <a class="dropdown-item" href="<?= site_url('profile_1'); ?>">Profil</a>
+                        <a class="dropdown-item" href="<?= site_url('profile_2'); ?>">Info Zakat</a>
+                        <a class="dropdown-item" href="<?= site_url('profile_3'); ?>">Berita</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Calculator</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="<?= site_url('calculator_1'); ?>">Calculator 1</a>
-                        <a class="dropdown-item" href="<?= site_url('calculator_2'); ?>">Calculator 2</a>
+                        <a class="dropdown-item" href="<?= site_url('calculator_1'); ?>">Zakat Fitrah</a>
+                        <a class="dropdown-item" href="<?= site_url('calculator_2'); ?>">Zakat Mal</a>
                     </div>
                 </li>
             </ul><!-- end of ml-auto -->
