@@ -54,16 +54,15 @@
             </ul><!-- end of ml-auto -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= site_url('backend/home/sign_in'); ?>">Sign In</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= site_url('backend/home/sign_out'); ?>">Sign Out</a>
+                    <a class="nav-link" href="<?= site_url('backend/auth/sign_out'); ?>">Sign Out</a>
                 </li>
             </ul><!-- end of ml-auto -->
         </div>
     </nav>
 
     <div class="container"><?= $content; ?></div>
+
+    <?php $this->load->view('backend/_partials/footer'); ?>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="<?= base_url('web/jquery/jquery.slim.min.js'); ?>"></script>
