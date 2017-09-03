@@ -1,9 +1,9 @@
 <?php
 
-class Home extends CI_Controller
+class Home extends Frontend_Controller
 {
     public function index()
     {
-        $this->load->view('frontend/home/index');
+        $this->render('frontend/home/index');
     }
 }

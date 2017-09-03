@@ -1,0 +1,21 @@
+{
+  "name": "zakat",
+  "homepage": "https://github.com/Dtriefidah/zakat",
+  "authors": [
+    "Jovi <redzjovi@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "v4.0.0-beta"
+  }
+}
