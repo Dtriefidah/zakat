@@ -13,6 +13,16 @@ class Users_Model extends CI_Model
     public function validate($scenario = '')
     {
         switch ($scenario) {
+            case 'create' :
+                $this->controller->form_validation->set_rules('user_type', 'User Type', ['trim', 'required']);
+                $this->controller->form_validation->set_rules('email', 'Email', ['trim', 'required', 'valid_email', 'max_length[100]']);
+                $this->controller->form_validation->set_rules('password', 'Password', ['trim', 'required', 'max_length[32]']);
+                $this->controller->form_validation->set_rules('name', 'Name', ['trim', 'required', 'max_length[100]']);
+                $this->controller->form_validation->set_rules('address', 'Address', ['trim', 'required']);
+
+                $this->controller->form_validation->set_rules('phone_number', 'Phone Number', ['trim', 'required', 'max_length[12]']);
+
+                break;
             case 'sign_in' :
                 $this->controller->form_validation->set_rules('email', 'Email', ['trim', 'required', 'valid_email', 'max_length[100]']);
                 $this->controller->form_validation->set_rules('password', 'Password', ['trim', 'required', 'max_length[32]', ['email_callable', [$this, 'check_sign_in']]]);
@@ -33,6 +43,30 @@ class Users_Model extends CI_Model
         return $this->controller->form_validation->run();
     }
 
+    /**
+     * @param array $params
+     * [
+     *      'user_type' => 'admin' / 'user',
+     *      'email' => 'email',
+     *      'password' => '******',
+     *      'name' => 'name',
+     *      'address' => 'address',
+     *      'phone_number' => '123456',
+     * ]
+     ©*/
+    public function create($params = [])
+    {
+        $data = [
+            'user_type' => $params['user_type'],
+            'email' => $params['email'],
+            'password' => md5($params['password']),
+            'name' => $params['name'],
+            'address' => $params['address'],
+            'phone_number' => $params['phone_number'],
+        ];
+        $this->db->insert($this->table, $data);
+    }
+
     public function check_sign_in()
     {
         $count = $this->db->from($this->table)->where(['user_type' => 'admin', 'email' => $this->input->post('email'), 'password' => md5($this->input->post('password')) ])->count_all_results();
@@ -41,6 +75,15 @@ class Users_Model extends CI_Model
             return false;
         }
         return true;
+    }
+
+    public function get_user_type_options()
+    {
+        return [
+            '' => '- Choose User Type -',
+            'admin' => 'admin',
+            'user' => 'user',
+        ];
     }
 
     /**
@@ -78,6 +121,7 @@ class Users_Model extends CI_Model
      *      'name' => 'name',
      *      'address' => 'address',
      *      'phone_number' => '123456',
+     *      'order_by' => 'email ASC',
      * ]
      * @return object
      */
@@ -91,6 +135,8 @@ class Users_Model extends CI_Model
         if (isset($params['name'])) { $this->db->where('name', $params['name']); }
         if (isset($params['address'])) { $this->db->where('address', $params['address']); }
         if (isset($params['phone_number'])) { $this->db->where('phone_number', $params['phone_number']); }
+
+        isset($params['order_by']) ? $this->db->order_by($params['order_by']) : $this->db->order_by('email ASC');
 
         return $this->db->get()->result();
     }

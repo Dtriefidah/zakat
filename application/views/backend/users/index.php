@@ -1,3 +1,7 @@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item active">Users</li>
+</ol>
+
 <?= anchor('backend/users/create', 'Create'); ?>
 <br /><br />
 <table class="dynatable table">

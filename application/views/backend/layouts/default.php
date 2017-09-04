@@ -63,7 +63,10 @@
         </div>
     </nav>
 
-    <div class="container"><?= $content; ?></div>
+    <div class="container">
+        <?php $this->load->view('backend/_partials/messages'); ?>
+        <?= $content; ?>
+    </div>
 
     <?php $this->load->view('backend/_partials/footer'); ?>
 
