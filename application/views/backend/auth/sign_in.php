@@ -16,10 +16,10 @@
         <?= validation_errors('<div class="alert alert-danger" role="alert">', '</div>'); ?>
         <h2 class="form-signin-heading">Please sign in</h2>
 
-        <?= form_input('email', set_value('email'), ['class' => 'form-control', 'placeholder' => 'Email address', 'required' => true]); ?>
-        <?= form_password('password', set_value('password'), ['class' => 'form-control', 'placeholder' => 'Password', 'required' => true]); ?>
+        <?= form_input(['class' => 'form-control', 'name' => 'email', 'placeholder' => 'Email address', 'required' => true, 'value' => set_value('email')]); ?>
+        <?= form_password(['class' => 'form-control', 'name' => 'password', 'placeholder' => 'Password', 'required' => true, 'value' => set_value('password')]); ?>
 
-        <?= form_submit('sign_in', 'Sign in', ['class' => 'btn btn-lg btn-primary btn-block']); ?>
+        <?= form_submit(['class' => 'btn btn-lg btn-primary btn-block', 'name' => 'sign_in', 'value' => 'Sign in']); ?>
         <?= form_close(); ?>
     </div> <!-- /container -->
 
