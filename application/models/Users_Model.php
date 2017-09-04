@@ -43,6 +43,18 @@ class Users_Model extends CI_Model
         return true;
     }
 
+    /**
+     * @param array $params
+     * [
+     *      'user_type' => 'admin' / 'user',
+     *      'email' => 'email',
+     *      'password' => '******',
+     *      'name' => 'name',
+     *      'address' => 'address',
+     *      'phone_number' => '123456',
+     * ]
+     * @return object
+     */
     public function row($params = [])
     {
         $this->db->from($this->table);
@@ -55,5 +67,31 @@ class Users_Model extends CI_Model
         if (isset($params['phone_number'])) { $this->db->where('phone_number', $params['phone_number']); }
 
         return $this->db->get()->row();
+    }
+
+    /**
+     * @param array $params
+     * [
+     *      'user_type' => ['admin', 'user'],
+     *      'email' => 'email',
+     *      'password' => '******',
+     *      'name' => 'name',
+     *      'address' => 'address',
+     *      'phone_number' => '123456',
+     * ]
+     * @return object
+     */
+    public function rows($params = [])
+    {
+        $this->db->from($this->table);
+
+        if (isset($params['user_type'])) { $this->db->where_in('user_type', $params['user_type']); }
+        if (isset($params['email'])) { $this->db->where('email', $params['email']); }
+        if (isset($params['password'])) { $this->db->where('password', md5($params['password'])); }
+        if (isset($params['name'])) { $this->db->where('name', $params['name']); }
+        if (isset($params['address'])) { $this->db->where('address', $params['address']); }
+        if (isset($params['phone_number'])) { $this->db->where('phone_number', $params['phone_number']); }
+
+        return $this->db->get()->result();
     }
 }

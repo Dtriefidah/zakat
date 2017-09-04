@@ -7,7 +7,10 @@
 
     <!-- Bootstrap CSS -->
     <link href="<?= base_url('web/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" />
+    <link href="<?= base_url('web/dynatable/jquery.dynatable.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/default/custom.css'); ?>" rel="stylesheet" />
+
+    <script src="<?= base_url('web/jquery/jquery.slim.min.js'); ?>"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -65,9 +68,9 @@
     <?php $this->load->view('backend/_partials/footer'); ?>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="<?= base_url('web/jquery/jquery.slim.min.js'); ?>"></script>
     <script src="<?= base_url('web/popper.js/popper.min.js'); ?>"></script>
     <script src="<?= base_url('web/bootstrap/js/bootstrap.min.js'); ?>"></script>
+    <script src="<?= base_url('web/dynatable/jquery.dynatable.js'); ?>"></script>
     <!-- Optional JavaScript -->
     <script src="<?= base_url('web/default/custom.js'); ?>"></script>
 </body>
