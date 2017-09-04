@@ -16,8 +16,8 @@
         <?= validation_errors('<div class="alert alert-danger" role="alert">', '</div>'); ?>
         <h2 class="form-signin-heading">Please sign in</h2>
 
-        <?= form_input(['class' => 'form-control', 'name' => 'email', 'placeholder' => 'Email address', 'required' => true, 'value' => set_value('email')]); ?>
-        <?= form_password(['class' => 'form-control', 'name' => 'password', 'placeholder' => 'Password', 'required' => true, 'value' => set_value('password')]); ?>
+        <?= form_input(['class' => 'form-control', 'name' => 'email', 'placeholder' => 'Email address', 'required' => true, 'value' => set_value('email', getenv('BACKEND_EMAIL'))]); ?>
+        <?= form_password(['class' => 'form-control', 'name' => 'password', 'placeholder' => 'Password', 'required' => true, 'value' => set_value('password', getenv('BACKEND_PASSWORD'))]); ?>
 
         <?= form_submit(['class' => 'btn btn-lg btn-primary btn-block', 'name' => 'sign_in', 'value' => 'Sign in']); ?>
         <?= form_close(); ?>
