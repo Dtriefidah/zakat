@@ -4,7 +4,7 @@
 
 <?= anchor('backend/users/create', 'Create'); ?>
 <br /><br />
-<table class="dynatable table">
+<table class="dynatable table table-responsive">
     <thead class="thead-inverse">
         <tr>
             <th>No</th>

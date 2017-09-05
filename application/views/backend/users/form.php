@@ -1,6 +1,6 @@
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><?= anchor('backend/users', 'Users'); ?></li>
-    <li class="breadcrumb-item active">Create</li>
+    <li class="breadcrumb-item active"><?= (isset($user) ? 'Update' : 'Create'); ?></li>
 </ol>
 
 <?= form_open(); ?>
