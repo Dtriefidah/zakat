@@ -15,7 +15,7 @@ class Users_Model extends CI_Model
         switch ($scenario) {
             case 'create' :
                 $this->controller->form_validation->set_rules('user_type', 'User Type', ['trim', 'required']);
-                $this->controller->form_validation->set_rules('email', 'Email', ['trim', 'required', 'valid_email', 'max_length[100]']);
+                $this->controller->form_validation->set_rules('email', 'Email', ['trim', 'required', 'valid_email', 'max_length[100]', 'is_unique['.$this->table.'.email]']);
                 $this->controller->form_validation->set_rules('password', 'Password', ['trim', 'required', 'max_length[32]']);
                 $this->controller->form_validation->set_rules('name', 'Name', ['trim', 'required', 'max_length[100]']);
                 $this->controller->form_validation->set_rules('address', 'Address', ['trim', 'required']);
@@ -25,13 +25,13 @@ class Users_Model extends CI_Model
                 break;
             case 'sign_in' :
                 $this->controller->form_validation->set_rules('email', 'Email', ['trim', 'required', 'valid_email', 'max_length[100]']);
-                $this->controller->form_validation->set_rules('password', 'Password', ['trim', 'required', 'max_length[32]', ['email_callable', [$this, 'check_sign_in']]]);
+                $this->controller->form_validation->set_rules('password', 'Password', ['trim', 'required', 'max_length[32]', ['sign_in_callable', [$this, 'sign_in_check']]]);
 
                 break;
             case 'update' :
                 $this->controller->form_validation->set_rules('id', 'Id', ['trim', 'required', 'integer', 'max_length[11]']);
                 $this->controller->form_validation->set_rules('user_type', 'User Type', ['trim', 'required']);
-                $this->controller->form_validation->set_rules('email', 'Email', ['trim', 'required', 'valid_email', 'max_length[100]']);
+                $this->controller->form_validation->set_rules('email', 'Email', ['trim', 'required', 'valid_email', 'max_length[100]', ['email_callable', [$this, 'email_check']]]);
                 $this->controller->form_validation->set_rules('password', 'Password', ['trim', 'max_length[32]']);
                 $this->controller->form_validation->set_rules('name', 'Name', ['trim', 'required', 'max_length[100]']);
 
@@ -78,11 +78,16 @@ class Users_Model extends CI_Model
         $this->db->insert($this->table, $data);
     }
 
-    public function check_sign_in()
+    public function delete($id = 0)
     {
-        $count = $this->db->from($this->table)->where(['user_type' => 'admin', 'email' => $this->input->post('email'), 'password' => md5($this->input->post('password')) ])->count_all_results();
-        if ($count == 0) {
-            $this->controller->form_validation->set_message('email_callable', 'These credentials do not match our records.');
+        $this->db->delete($this->table, ['id' => $id]);
+    }
+
+    public function email_check()
+    {
+        $count = $this->db->from($this->table)->where('id !=', $this->input->post('id'))->where('email', $this->input->post('email'))->count_all_results();
+        if ($count > 0) {
+            $this->controller->form_validation->set_message('email_callable', '{field} field must contain a unique value.');
             return false;
         }
         return true;
@@ -152,6 +157,16 @@ class Users_Model extends CI_Model
         isset($params['order_by']) ? $this->db->order_by($params['order_by']) : $this->db->order_by('email ASC');
 
         return $this->db->get()->result();
+    }
+
+    public function sign_in_check()
+    {
+        $count = $this->db->from($this->table)->where(['user_type' => 'admin', 'email' => $this->input->post('email'), 'password' => md5($this->input->post('password')) ])->count_all_results();
+        if ($count == 0) {
+            $this->controller->form_validation->set_message('sign_in_callable', 'These credentials do not match our records.');
+            return false;
+        }
+        return true;
     }
 
     /**

@@ -26,6 +26,13 @@ class Users extends Backend_Controller
         $this->render('backend/users/form', $vars);
     }
 
+    public function delete($id = 0)
+    {
+        $this->Users_Model->delete($id);
+        $this->session->set_flashdata('message', 'Data has been deleted');
+        redirect('backend/users');
+    }
+
     public function update($id = 0)
     {
         if ($this->input->post() && $this->Users_Model->validate('update')) {

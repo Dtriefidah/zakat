@@ -25,7 +25,7 @@
                 <td><?= $user->phone_number; ?></td>
                 <td>
                     <?= anchor('backend/users/update/'.$user->id, 'Update'); ?> |
-                    <?= anchor('backend/users/delete/'.$user->id, 'Delete'); ?>
+                    <?= anchor('backend/users/delete/'.$user->id, 'Delete', ['onclick' => "return confirm('Are you sure you want to delete this?')"]); ?>
                 </td>
             </tr>
         <?php endforeach; ?>
