@@ -17,15 +17,12 @@
         <a class="navbar-brand" href="<?= site_url('backend/'); ?>">
             <img height="30" src="<?= base_url('uploads/media/logo.png'); ?>" width="30">
         </a>
-        <a class="navbar-brand" href="#">Zakat</a>
+        <a class="navbar-brand" href="<?= site_url('backend/'); ?>">Zakat</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= site_url('backend/'); ?>">Home</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Posts</a>
                     <div class="dropdown-menu">
@@ -47,12 +44,8 @@
                         <a class="dropdown-item" href="<?= site_url('backend/transactions'); ?>">Transactions</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Users</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="<?= site_url('backend/users'); ?>">Users</a>
-                        <a class="dropdown-item" href="<?= site_url('backend/admin'); ?>">Admin</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= site_url('backend/users'); ?>">Users</a>
                 </li>
             </ul><!-- end of ml-auto -->
             <ul class="navbar-nav ml-auto">
