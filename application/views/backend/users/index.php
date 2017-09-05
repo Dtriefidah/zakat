@@ -24,7 +24,7 @@
                 <td><?= $user->name; ?></td>
                 <td><?= $user->phone_number; ?></td>
                 <td>
-                    <?= anchor('backend/users/update'.$user->id, 'Update'); ?> |
+                    <?= anchor('backend/users/update/'.$user->id, 'Update'); ?> |
                     <?= anchor('backend/users/delete/'.$user->id, 'Delete'); ?>
                 </td>
             </tr>

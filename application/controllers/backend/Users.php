@@ -25,4 +25,17 @@ class Users extends Backend_Controller
         $vars['Users_Model'] = $this->Users_Model;
         $this->render('backend/users/form', $vars);
     }
+
+    public function update($id = 0)
+    {
+        if ($this->input->post() && $this->Users_Model->validate('update')) {
+            $this->Users_Model->update($this->input->post());
+            $this->session->set_flashdata('message', 'Data has been updated');
+            redirect('backend/users');
+        }
+
+        $vars['user'] = $this->Users_Model->row(['id' => $id]);
+        $vars['Users_Model'] = $this->Users_Model;
+        $this->render('backend/users/form', $vars);
+    }
 }
