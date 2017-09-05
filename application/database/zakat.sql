@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Sep 03, 2017 at 09:36 AM
+-- Generation Time: Sep 05, 2017 at 05:02 AM
 -- Server version: 5.5.42
 -- PHP Version: 7.0.8
 
@@ -59,7 +59,8 @@ CREATE TABLE `news` (
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `content` text COLLATE utf8_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -99,7 +100,8 @@ CREATE TABLE `transactions` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `total` int(11) NOT NULL,
-  `status` enum('Paid','Unpaid') COLLATE utf8_unicode_ci NOT NULL
+  `status` enum('Paid','Unpaid') COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -137,7 +139,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_type`, `email`, `password`, `name`, `address`, `phone_number`) VALUES
-(1, 'admin', 'admin@email.com', '21232f297a57a5a743894a0e4a801fc3', 'admin', '', '');
+(1, 'admin', 'admin@email.com', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'Jakarta', '081122223333');
 
 --
 -- Indexes for dumped tables
