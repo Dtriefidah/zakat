@@ -26,7 +26,7 @@
 </div>
 <div class="form-group">
     <?= form_label('Address'); ?>
-    <?= form_input(['class' => 'form-control', 'name' => 'address', 'required' => true, 'value' => (isset($user) ? set_value('address', $user->address) : set_value('address'))]); ?>
+    <?= form_textarea(['class' => 'form-control', 'name' => 'address', 'required' => true, 'rows' => 3, 'value' => (isset($user) ? set_value('address', $user->address) : set_value('address'))]); ?>
     <?= form_error('address', '<div class="text-danger">', '</div>'); ?>
 </div>
 <div class="form-group">
