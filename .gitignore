@@ -10,4 +10,3 @@ uploads/*
 !uploads/media/
 vendor/*
 web/bower/*
-.env
