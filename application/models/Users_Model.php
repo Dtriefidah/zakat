@@ -1,4 +1,5 @@
 <?php
+
 class Users_Model extends CI_Model
 {
     public $controller;
@@ -14,40 +15,40 @@ class Users_Model extends CI_Model
     {
         switch ($scenario) {
             case 'create' :
-                $this->controller->form_validation->set_rules('user_type', 'User Type', ['trim', 'required']);
-                $this->controller->form_validation->set_rules('email', 'Email', ['trim', 'required', 'valid_email', 'max_length[100]', 'is_unique['.$this->table.'.email]']);
-                $this->controller->form_validation->set_rules('password', 'Password', ['trim', 'required', 'max_length[32]']);
-                $this->controller->form_validation->set_rules('name', 'Name', ['trim', 'required', 'max_length[100]']);
-                $this->controller->form_validation->set_rules('address', 'Address', ['trim', 'required']);
+                $this->controller->form_validation->set_rules('user_type', lang('user_type'), ['trim', 'required']);
+                $this->controller->form_validation->set_rules('email', lang('email'), ['trim', 'required', 'valid_email', 'max_length[100]', 'is_unique['.$this->table.'.email]']);
+                $this->controller->form_validation->set_rules('password', lang('password'), ['trim', 'required', 'max_length[32]']);
+                $this->controller->form_validation->set_rules('name', lang('name'), ['trim', 'required', 'max_length[100]']);
+                $this->controller->form_validation->set_rules('address', lang('address'), ['trim', 'required']);
 
-                $this->controller->form_validation->set_rules('phone_number', 'Phone Number', ['trim', 'required', 'max_length[16]']);
+                $this->controller->form_validation->set_rules('phone_number', lang('phone_number'), ['trim', 'required', 'max_length[16]']);
 
                 break;
             case 'sign_in' :
-                $this->controller->form_validation->set_rules('email', 'Email', ['trim', 'required', 'valid_email', 'max_length[100]']);
-                $this->controller->form_validation->set_rules('password', 'Password', ['trim', 'required', 'max_length[32]', ['sign_in_callable', [$this, 'sign_in_check']]]);
+                $this->controller->form_validation->set_rules('email', lang('email'), ['trim', 'required', 'valid_email', 'max_length[100]']);
+                $this->controller->form_validation->set_rules('password', lang('password'), ['trim', 'required', 'max_length[32]', ['sign_in_callable', [$this, 'sign_in_check']]]);
 
                 break;
             case 'update' :
-                $this->controller->form_validation->set_rules('id', 'Id', ['trim', 'required', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('user_type', 'User Type', ['trim', 'required']);
-                $this->controller->form_validation->set_rules('email', 'Email', ['trim', 'required', 'valid_email', 'max_length[100]', ['email_callable', [$this, 'email_check']]]);
-                $this->controller->form_validation->set_rules('password', 'Password', ['trim', 'max_length[32]']);
-                $this->controller->form_validation->set_rules('name', 'Name', ['trim', 'required', 'max_length[100]']);
+                $this->controller->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
+                $this->controller->form_validation->set_rules('user_type', lang('user_type'), ['trim', 'required']);
+                $this->controller->form_validation->set_rules('email', lang('email'), ['trim', 'required', 'valid_email', 'max_length[100]', ['email_callable', [$this, 'email_check']]]);
+                $this->controller->form_validation->set_rules('password', lang('password'), ['trim', 'max_length[32]']);
+                $this->controller->form_validation->set_rules('name', lang('name'), ['trim', 'required', 'max_length[100]']);
 
-                $this->controller->form_validation->set_rules('address', 'Address', ['trim', 'required']);
-                $this->controller->form_validation->set_rules('phone_number', 'Phone Number', ['trim', 'required', 'max_length[16]']);
+                $this->controller->form_validation->set_rules('address', lang('address'), ['trim', 'required']);
+                $this->controller->form_validation->set_rules('phone_number', lang('phone_number'), ['trim', 'required', 'max_length[16]']);
 
                 break;
             default :
-                $this->controller->form_validation->set_rules('id', 'Id', ['trim', 'required', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('user_type', 'User Type', ['trim', 'required']);
-                $this->controller->form_validation->set_rules('email', 'Email', ['trim', 'required', 'valid_email', 'max_length[100]']);
-                $this->controller->form_validation->set_rules('password', 'Password', ['trim', 'required', 'max_length[32]']);
-                $this->controller->form_validation->set_rules('name', 'Name', ['trim', 'required', 'max_length[100]']);
+                $this->controller->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
+                $this->controller->form_validation->set_rules('user_type', lang('user_type'), ['trim', 'required']);
+                $this->controller->form_validation->set_rules('email', lang('email'), ['trim', 'required', 'valid_email', 'max_length[100]']);
+                $this->controller->form_validation->set_rules('password', lang('password'), ['trim', 'required', 'max_length[32]']);
+                $this->controller->form_validation->set_rules('name', lang('name'), ['trim', 'required', 'max_length[100]']);
 
-                $this->controller->form_validation->set_rules('address', 'Address', ['trim', 'required']);
-                $this->controller->form_validation->set_rules('phone_number', 'Phone Number', ['trim', 'required', 'max_length[16]']);
+                $this->controller->form_validation->set_rules('address', lang('address'), ['trim', 'required']);
+                $this->controller->form_validation->set_rules('phone_number', lang('phone_number'), ['trim', 'required', 'max_length[16]']);
 
                 break;
         }
@@ -64,7 +65,7 @@ class Users_Model extends CI_Model
      *      'address' => 'address',
      *      'phone_number' => '123456',
      * ]
-     ©*/
+     */
     public function create($params = [])
     {
         $data = [

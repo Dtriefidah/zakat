@@ -11,6 +11,7 @@ $lang = [
     'delete' => 'Delete',
     'email' => 'Email',
     'field_must_contain_a_unique_value' => 'field must contain a unique value',
+    'id' => 'Id',
     'language' => 'Language',
     'name' => 'Name',
     'news' => 'News',

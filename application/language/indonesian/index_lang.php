@@ -11,6 +11,7 @@ $lang = [
     'delete' => 'Hapus',
     'email' => 'Email',
     'field_must_contain_a_unique_value' => 'bidang harus mengandung nilai unik',
+    'id' => 'Id',
     'language' => 'Bahasa',
     'name' => 'Nama',
     'news' => 'Berita',
