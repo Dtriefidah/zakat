@@ -27,7 +27,7 @@
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= lang('posts'); ?></a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="<?= site_url('backend/news'); ?>"><?= lang('news'); ?></a>
-                        <a class="dropdown-item" href="<?= site_url('backend/category'); ?>"><?= lang('categories'); ?></a>
+                        <a class="dropdown-item" href="<?= site_url('backend/categories'); ?>"><?= lang('categories'); ?></a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
