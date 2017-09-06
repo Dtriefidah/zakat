@@ -77,6 +77,10 @@ $config['url_suffix'] = '';
 |
 */
 $config['language']	= 'english';
+$config['language_options'] = [
+    'english' => 'English',
+    'indonesian' => 'Indonesia',
+];
 
 /*
 |--------------------------------------------------------------------------

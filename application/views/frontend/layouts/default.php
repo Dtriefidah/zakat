@@ -48,6 +48,14 @@
                 </li>
             </ul><!-- end of ml-auto -->
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</a>
+                    <div class="dropdown-menu">
+                        <?php foreach ($this->config->item('language_options') as $language => $language_text) : ?>
+                            <?= anchor('language/switch_language/'.$language, $language_text, ['class' => 'dropdown-item']); ?>
+                        <?php endforeach; ?>
+                    </div>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= site_url('home/sign_in'); ?>">Sign In</a>
                 </li>

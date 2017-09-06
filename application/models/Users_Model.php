@@ -87,7 +87,7 @@ class Users_Model extends CI_Model
     {
         $count = $this->db->from($this->table)->where('id !=', $this->input->post('id'))->where('email', $this->input->post('email'))->count_all_results();
         if ($count > 0) {
-            $this->controller->form_validation->set_message('email_callable', '{field} field must contain a unique value.');
+            $this->controller->form_validation->set_message('email_callable', '{field} '.lang('field_must_contain_a_unique_value').'.');
             return false;
         }
         return true;
@@ -96,9 +96,9 @@ class Users_Model extends CI_Model
     public function get_user_type_options()
     {
         return [
-            '' => '- Choose User Type -',
-            'admin' => 'admin',
-            'user' => 'user',
+            '' => '- '.lang('choose_user_type').' -',
+            'admin' => lang('admin'),
+            'user' => lang('user'),
         ];
     }
 
@@ -163,7 +163,7 @@ class Users_Model extends CI_Model
     {
         $count = $this->db->from($this->table)->where(['user_type' => 'admin', 'email' => $this->input->post('email'), 'password' => md5($this->input->post('password')) ])->count_all_results();
         if ($count == 0) {
-            $this->controller->form_validation->set_message('sign_in_callable', 'These credentials do not match our records.');
+            $this->controller->form_validation->set_message('sign_in_callable', lang('these_credentials_do_not_match_our_records').'.');
             return false;
         }
         return true;

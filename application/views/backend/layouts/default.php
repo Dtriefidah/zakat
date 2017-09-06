@@ -17,40 +17,48 @@
         <a class="navbar-brand" href="<?= site_url('backend/'); ?>">
             <img height="30" src="<?= base_url('uploads/media/logo.png'); ?>" width="30">
         </a>
-        <a class="navbar-brand" href="<?= site_url('backend/'); ?>">Zakat</a>
+        <a class="navbar-brand" href="<?= site_url('backend/'); ?>"><?= lang('zakat'); ?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Posts</a>
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= lang('posts'); ?></a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="<?= site_url('backend/news'); ?>">News</a>
-                        <a class="dropdown-item" href="<?= site_url('backend/category'); ?>">Category</a>
+                        <a class="dropdown-item" href="<?= site_url('backend/news'); ?>"><?= lang('news'); ?></a>
+                        <a class="dropdown-item" href="<?= site_url('backend/category'); ?>"><?= lang('categories'); ?></a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Q & A</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="<?= site_url('backend/questions'); ?>">Questions</a>
-                        <a class="dropdown-item" href="<?= site_url('backend/answers'); ?>">Answers</a>
+                        <a class="dropdown-item" href="<?= site_url('backend/questions'); ?>"><?= lang('questions'); ?></a>
+                        <a class="dropdown-item" href="<?= site_url('backend/answers'); ?>"><?= lang('answers'); ?></a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Zakat</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="<?= site_url('backend/products'); ?>">Products</a>
-                        <a class="dropdown-item" href="<?= site_url('backend/transactions'); ?>">Transactions</a>
+                        <a class="dropdown-item" href="<?= site_url('backend/products'); ?>"><?= lang('products'); ?></a>
+                        <a class="dropdown-item" href="<?= site_url('backend/transactions'); ?>"><?= lang('transactions'); ?></a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= site_url('backend/users'); ?>">Users</a>
+                    <a class="nav-link" href="<?= site_url('backend/users'); ?>"><?= lang('users'); ?></a>
                 </li>
-            </ul><!-- end of ml-auto -->
+            </ul><!-- end of mr-auto -->
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= lang('language'); ?></a>
+                    <div class="dropdown-menu">
+                        <?php foreach ($this->config->item('language_options') as $language => $language_text) : ?>
+                            <?= anchor('language/switch_language/'.$language, $language_text, ['class' => 'dropdown-item']); ?>
+                        <?php endforeach; ?>
+                    </div>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= site_url('backend/auth/sign_out'); ?>">Sign Out</a>
+                    <a class="nav-link" href="<?= site_url('backend/auth/sign_out'); ?>"><?= lang('sign_out'); ?></a>
                 </li>
             </ul><!-- end of ml-auto -->
         </div>
