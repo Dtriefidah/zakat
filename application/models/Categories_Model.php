@@ -33,6 +33,13 @@ class Categories_Model extends CI_Model
         return $this->controller->form_validation->run();
     }
 
+    public function categories_options()
+    {
+        $categories = $this->db->from($this->table)->order_by('name ASC')->get()->result_array();
+        $options = ['' => '- '.lang('choose_category').' -'] + array_column($categories, 'name', 'id');
+        return $options;
+    }
+
     /**
      * @param array $params
      * [
@@ -116,9 +123,11 @@ class Categories_Model extends CI_Model
     {
         $data = [];
 
-        if (isset($params['name'])) { $data['name'] = $params['name']; }
-        if (isset($params['slug'])) { $data['slug'] = url_title($params['name'].' '.$params['id'], '-', true); }
-
+        if (isset($params['name'])) {
+            $data['name'] = $params['name'];
+            $data['slug'] = url_title($params['name'].' '.$params['id'], '-', true);
+        }
+        
         $this->db->where('id', $params['id']);
         $this->db->update($this->table, $data);
     }
