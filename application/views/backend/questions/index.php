@@ -18,7 +18,7 @@
         <?php foreach ($questions as $i => $question) : ?>
             <tr>
                 <td><?= $i + 1; ?></td>
-                <td><?= $question->user_id; ?></td>
+                <td><?= $question->user_name; ?></td>
                 <td><?= $question->title; ?></td>
                 <td><?= $question->slug; ?></td>
                 <td>

@@ -9,6 +9,7 @@ class Questions_Model extends CI_Model
     {
         parent::__construct();
         $this->controller =& get_instance();
+        $this->load->model('Users_Model');
     }
 
     public function validate($scenario = '')
@@ -107,12 +108,16 @@ class Questions_Model extends CI_Model
      */
     public function rows($params = [])
     {
-        $this->db->from($this->table);
+        $this->db->select('q.*');
+        $this->db->select('u.name AS user_name');
 
-        if (isset($params['name'])) { $this->db->where('name', $params['name']); }
-        if (isset($params['slug'])) { $this->db->where('slug', $params['slug']); }
+        $this->db->from($this->table.' AS q');
+        $this->db->join($this->Users_Model->table.' AS u', 'u.id = q.user_id', 'LEFT');
 
-        isset($params['order_by']) ? $this->db->order_by($params['order_by']) : $this->db->order_by('title ASC');
+        if (isset($params['name'])) { $this->db->where('q.name', $params['name']); }
+        if (isset($params['slug'])) { $this->db->where('q.slug', $params['slug']); }
+
+        isset($params['order_by']) ? $this->db->order_by($params['order_by']) : $this->db->order_by('q.title ASC');
 
         return $this->db->get()->result();
     }
