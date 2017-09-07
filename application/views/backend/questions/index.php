@@ -11,6 +11,7 @@
             <th><?= lang('user'); ?></th>
             <th><?= lang('title'); ?></th>
             <th><?= lang('slug'); ?></th>
+            <th><?= lang('created_at'); ?></th>
             <th><?= lang('actions'); ?></th>
         </tr>
     </thead>
@@ -21,6 +22,7 @@
                 <td><?= $question->user_name; ?></td>
                 <td><?= $question->title; ?></td>
                 <td><?= $question->slug; ?></td>
+                <td><?= $question->created_at; ?></td>
                 <td>
                     <?= anchor('backend/questions/update/'.$question->id, lang('update')); ?> |
                     <?= anchor('backend/questions/delete/'.$question->id, lang('delete'), ['onclick' => "return confirm('".lang('are_you_sure_you_want_to_delete_this')."')"]); ?>

@@ -1,15 +1,15 @@
 <?php
 
-class Questions_Model extends CI_Model
+class Answers_Model extends CI_Model
 {
     public $controller;
-    public $table = 'questions';
+    public $table = 'answers';
 
     public function __construct()
     {
         parent::__construct();
         $this->controller =& get_instance();
-        $this->load->model('Users_Model');
+        $this->load->model(['Questions_Model', 'Users_Model']);
     }
 
     public function validate($scenario = '')
@@ -17,22 +17,21 @@ class Questions_Model extends CI_Model
         switch ($scenario) {
             case 'create' :
                 $this->controller->form_validation->set_rules('user_id', lang('user'), ['trim', 'required', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('title', lang('title'), ['trim', 'required', 'max_length[255]']);
+                $this->controller->form_validation->set_rules('question_id', lang('question'), ['trim', 'required', 'integer', 'max_length[11]']);
                 $this->controller->form_validation->set_rules('content', lang('content'), ['trim', 'required']);
 
                 break;
             case 'update' :
                 $this->controller->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
+                $this->controller->form_validation->set_rules('question_id', lang('question'), ['trim', 'required', 'integer', 'max_length[11]']);
                 $this->controller->form_validation->set_rules('user_id', lang('user'), ['trim', 'required', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('title', lang('title'), ['trim', 'required', 'max_length[255]']);
                 $this->controller->form_validation->set_rules('content', lang('content'), ['trim', 'required']);
 
                 break;
             default :
                 $this->controller->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
+                $this->controller->form_validation->set_rules('question_id', lang('question'), ['trim', 'required', 'integer', 'max_length[11]']);
                 $this->controller->form_validation->set_rules('user_id', lang('user'), ['trim', 'required', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('title', lang('title'), ['trim', 'required', 'max_length[255]']);
-                $this->controller->form_validation->set_rules('slug', lang('slug'), ['trim', 'required', 'max_length[255]']);
                 $this->controller->form_validation->set_rules('content', lang('content'), ['trim', 'required']);
                 $this->controller->form_validation->set_rules('created_at', lang('created_at'), ['trim', 'required']);
 
@@ -45,36 +44,24 @@ class Questions_Model extends CI_Model
      * @param array $params
      * [
      *      'user_id' => '1',
-     *      'title' => 'title',
      *      'content' => 'content'
      * ]
      */
     public function create($params = [])
     {
         $data = [
+            'question_id' => $params['question_id'],
             'user_id' => $params['user_id'],
-            'title' => $params['title'],
             'content' => $params['content'],
             'created_at' => date('Y-m-d H:i:s'),
         ];
         $this->db->insert($this->table, $data);
         $id = $this->db->insert_id();
-
-        $data['slug'] = url_title($params['title'].' '.$id, '-', true);
-        $this->db->where('id', $id);
-        $this->db->update($this->table, $data);
     }
 
     public function delete($id = 0)
     {
         $this->db->delete($this->table, ['id' => $id]);
-    }
-
-    public function questions_options()
-    {
-        $questions = $this->db->from($this->table)->order_by('title ASC')->get()->result_array();
-        $options = ['' => '- '.lang('choose_question').' -'] + array_column($questions, 'title', 'id');
-        return $options;
     }
 
     /**
@@ -115,16 +102,18 @@ class Questions_Model extends CI_Model
      */
     public function rows($params = [])
     {
-        $this->db->select('q.*');
+        $this->db->select('a.*');
+        $this->db->select('q.title AS question_title');
         $this->db->select('u.name AS user_name');
 
-        $this->db->from($this->table.' AS q');
-        $this->db->join($this->Users_Model->table.' AS u', 'u.id = q.user_id', 'LEFT');
+        $this->db->from($this->table.' AS a');
+        $this->db->join($this->Questions_Model->table.' AS q', 'q.id = a.question_id', 'LEFT');
+        $this->db->join($this->Users_Model->table.' AS u', 'u.id = a.user_id', 'LEFT');
 
         if (isset($params['name'])) { $this->db->where('q.name', $params['name']); }
         if (isset($params['slug'])) { $this->db->where('q.slug', $params['slug']); }
 
-        isset($params['order_by']) ? $this->db->order_by($params['order_by']) : $this->db->order_by('q.title ASC');
+        isset($params['order_by']) ? $this->db->order_by($params['order_by']) : $this->db->order_by('a.created_at DESC');
 
         return $this->db->get()->result();
     }
@@ -133,8 +122,8 @@ class Questions_Model extends CI_Model
      * @param array $params
      * [
      *      'id' => '1',
+     *      'question_id' => 'question_id',
      *      'user_id' => '1',
-     *      'title' => 'title',
      *      'content' => 'content',
      * ]
      */
@@ -142,11 +131,8 @@ class Questions_Model extends CI_Model
     {
         $data = [];
 
+        if (isset($params['question_id'])) { $data['question_id'] = $params['question_id']; }
         if (isset($params['user_id'])) { $data['user_id'] = $params['user_id']; }
-        if (isset($params['title'])) {
-            $data['title'] = $params['title'];
-            $data['slug'] = url_title($params['title'].' '.$params['id'], '-', true);
-        }
         if (isset($params['content'])) { $data['content'] = $params['content']; }
 
         $this->db->where('id', $params['id']);
