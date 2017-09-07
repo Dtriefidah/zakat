@@ -1,18 +1,18 @@
 <ol class="breadcrumb">
-    <li class="breadcrumb-item active">Users</li>
+    <li class="breadcrumb-item active"><?= lang('users'); ?></li>
 </ol>
 
-<?= anchor('backend/users/create', 'Create'); ?>
+<?= anchor('backend/users/create', lang('create')); ?>
 <br /><br />
 <table class="dynatable table table-responsive">
     <thead class="thead-inverse">
         <tr>
-            <th>No</th>
-            <th>User Type</th>
-            <th>Email</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Actions</th>
+            <th><?= lang('no'); ?></th>
+            <th><?= lang('user_type'); ?></th>
+            <th><?= lang('email'); ?></th>
+            <th><?= lang('name'); ?></th>
+            <th><?= lang('phone_number'); ?></th>
+            <th><?= lang('actions'); ?></th>
         </tr>
     </thead>
     <tbody>
@@ -24,8 +24,8 @@
                 <td><?= $user->name; ?></td>
                 <td><?= $user->phone_number; ?></td>
                 <td>
-                    <?= anchor('backend/users/update/'.$user->id, 'Update'); ?> |
-                    <?= anchor('backend/users/delete/'.$user->id, 'Delete', ['onclick' => "return confirm('Are you sure you want to delete this?')"]); ?>
+                    <?= anchor('backend/users/update/'.$user->id, lang('update')); ?> |
+                    <?= anchor('backend/users/delete/'.$user->id, lang('delete'), ['onclick' => "return confirm('".lang('are_you_sure_you_want_to_delete_this')."')"]); ?>
                 </td>
             </tr>
         <?php endforeach; ?>
