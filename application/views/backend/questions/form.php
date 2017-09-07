@@ -22,3 +22,31 @@
 <?= isset($question) ? form_input(['name' => 'id', 'type' => 'hidden', 'value' => $question->id]) : ''; ?>
 <?= form_submit('submit', (isset($question) ? lang('update') : lang('create')), ['class' => 'btn btn-block btn-success']); ?>
 <?= form_close(); ?>
+
+
+<br />
+<?php if ($answers) : ?>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th><?= lang('created_at'); ?></th>
+                <th><?= lang('answer_by'); ?></th>
+                <th><?= lang('content'); ?></th>
+                <th><?= lang('actions'); ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($answers as $answer) : ?>
+                <tr>
+                    <td><?= $answer->created_at; ?></td>
+                    <td><?= $answer->user_name; ?></td>
+                    <td><?= $answer->content; ?></td>
+                    <td>
+                        <?= anchor('backend/answers/update/'.$answer->id.'/'.base64_encode(current_url()), lang('update')); ?> |
+                        <?= anchor('backend/answers/delete/'.$answer->id.'/'.base64_encode(current_url()), lang('delete'), ['onclick' => "return confirm('".lang('are_you_sure_you_want_to_delete_this')."')"]); ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php endif; ?>

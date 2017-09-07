@@ -27,19 +27,19 @@ class Answers extends Backend_Controller
         $this->render('backend/answers/form', $vars);
     }
 
-    public function delete($id = 0)
+    public function delete($id = 0, $last_url = '')
     {
         $this->Answers_Model->delete($id);
         $this->session->set_flashdata('message', 'Data has been deleted');
-        redirect('backend/answers');
+        empty($last_url) ? redirect('backend/answers') : redirect(base64_decode($last_url));
     }
 
-    public function update($id = 0)
+    public function update($id = 0, $last_url = '')
     {
         if ($this->input->post() && $this->Answers_Model->validate('update')) {
             $this->Answers_Model->update($this->input->post());
             $this->session->set_flashdata('message', 'Data has been updated');
-            redirect('backend/answers');
+            empty($last_url) ? redirect('backend/answers') : redirect(base64_decode($last_url));
         }
 
         $vars['answer'] = $this->Answers_Model->row(['id' => $id]);

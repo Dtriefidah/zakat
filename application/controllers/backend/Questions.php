@@ -5,7 +5,7 @@ class Questions extends Backend_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(['Questions_Model', 'Users_Model']);
+        $this->load->model(['Answers_Model', 'Questions_Model', 'Users_Model']);
     }
 
     public function index()
@@ -41,8 +41,10 @@ class Questions extends Backend_Controller
             redirect('backend/questions');
         }
 
+        $vars['answers'] = $this->Answers_Model->rows(['question_id' => $id, 'order_by' => 'created_at ASC']);
         $vars['Users_Model'] = $this->Users_Model;
         $vars['question'] = $this->Questions_Model->row(['id' => $id]);
+
         $this->render('backend/questions/form', $vars);
     }
 }
