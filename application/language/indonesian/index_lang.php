@@ -9,6 +9,7 @@ $lang = [
     'category_id' => 'Kategori Id',
     'categories' => 'Kategori',
     'choose_category' => 'Pilih Kategori',
+    'choose_user' => 'Pilih Pengguna',
     'choose_user_type' => 'Pilih Tipe Pengguna',
     'content' => 'Konten',
     'create' => 'Buat',

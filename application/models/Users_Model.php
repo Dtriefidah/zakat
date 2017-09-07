@@ -197,4 +197,11 @@ class Users_Model extends CI_Model
         $this->db->where('id', $params['id']);
         $this->db->update($this->table, $data);
     }
+
+    public function users_options()
+    {
+        $categories = $this->db->from($this->table)->order_by('name ASC')->get()->result_array();
+        $options = ['' => '- '.lang('choose_user').' -'] + array_column($categories, 'name', 'id');
+        return $options;
+    }
 }

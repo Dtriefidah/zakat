@@ -9,6 +9,7 @@ $lang = [
     'category_id' => 'Category Id',
     'categories' => 'Categories',
     'choose_category' => 'Choose Category',
+    'choose_user' => 'Choose User',
     'choose_user_type' => 'Choose User Type',
     'content' => 'Content',
     'create' => 'Create',
