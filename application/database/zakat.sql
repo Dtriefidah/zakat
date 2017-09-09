@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Sep 05, 2017 at 05:02 AM
+-- Generation Time: Sep 07, 2017 at 05:29 PM
 -- Server version: 5.5.42
--- PHP Version: 7.0.8
+-- PHP Version: 5.6.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -30,7 +30,6 @@ CREATE TABLE `answers` (
   `id` int(11) NOT NULL,
   `question_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `content` text COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -73,6 +72,7 @@ CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `type` enum('Zakat Agriculture','Zakat Farm Animals','Zakat Gold and Silver','Zakat Money','Zakat Rikaz','Zakat Trading') COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -86,6 +86,7 @@ CREATE TABLE `questions` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `content` text COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
