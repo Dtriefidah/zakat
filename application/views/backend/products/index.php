@@ -18,7 +18,7 @@
         <?php foreach ($products as $i => $user) : ?>
             <tr>
                 <td><?= $i + 1; ?></td>
-                <td><?= $user->type; ?></td>
+                <td><?= lang($user->type); ?></td>
                 <td><?= $user->name; ?></td>
                 <td><?= $user->price; ?></td>
                 <td>
