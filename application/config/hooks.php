@@ -11,6 +11,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |	https://codeigniter.com/user_guide/general/hooks.html
 |
 */
+$hook['post_controller_constructor'] = [
+    'class' => 'Language_hooks',
+    'filename' => 'Language_hooks.php',
+    'filepath' => 'hooks',
+    'function' => 'initialize',
+];
 $hook['post_controller'] = function() {
     $ci =& get_instance();
     if (! $ci->input->is_ajax_request()) { $ci->output->enable_profiler((getenv('PROFILER') == 'true')); }
