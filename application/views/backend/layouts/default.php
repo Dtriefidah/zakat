@@ -7,10 +7,13 @@
 
     <!-- Bootstrap CSS -->
     <link href="<?= base_url('web/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" />
+    <link href="<?= base_url('web/bootstrap4c-dropzone/component-dropzone.min.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/dynatable/jquery.dynatable.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/default/custom.css'); ?>" rel="stylesheet" />
 
-    <script src="<?= base_url('web/jquery/jquery.slim.min.js'); ?>"></script>
+    <?php $this->load->view('backend/_partials/head'); ?>
+    <script src="<?= base_url('web/jquery/jquery.min.js'); ?>"></script>
+    <script src="<?= base_url('web/dropzone/dropzone.min.js'); ?>"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">

@@ -72,7 +72,7 @@
     <div class="container"><?= $content; ?></div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="<?= base_url('web/jquery/jquery.slim.min.js'); ?>"></script>
+    <script src="<?= base_url('web/jquery/jquery.min.js'); ?>"></script>
     <script src="<?= base_url('web/popper.js/popper.min.js'); ?>"></script>
     <script src="<?= base_url('web/bootstrap/js/bootstrap.min.js'); ?>"></script>
     <!-- Optional JavaScript -->
