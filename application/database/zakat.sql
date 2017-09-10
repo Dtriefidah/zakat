@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Sep 07, 2017 at 05:29 PM
+-- Generation Time: Sep 10, 2017 at 04:16 PM
 -- Server version: 5.5.42
 -- PHP Version: 5.6.10
 
@@ -73,7 +73,8 @@ CREATE TABLE `products` (
   `type` enum('Zakat Agriculture','Zakat Farm Animals','Zakat Gold and Silver','Zakat Money','Zakat Rikaz','Zakat Trading') COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `price` int(11) NOT NULL
+  `price` int(11) NOT NULL,
+  `images` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -257,10 +258,10 @@ ALTER TABLE `answers`
   ADD CONSTRAINT `answers_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `news`
+-- Constraints for table `categories`
 --
-ALTER TABLE `news`
-  ADD CONSTRAINT `news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
+ALTER TABLE `categories`
+  ADD CONSTRAINT `categories_ibfk_1` FOREIGN KEY (`id`) REFERENCES `news` (`category_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `questions`

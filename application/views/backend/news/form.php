@@ -26,6 +26,16 @@
     <?= form_textarea(['class' => 'form-control', 'name' => 'content', 'rows' => 3, 'value' => (isset($news) ? set_value('content', $news->content) : set_value('content'))]); ?>
     <?= form_error('content', '<div class="text-danger">', '</div>'); ?>
 </div>
-<?= isset($news) ? form_input(['name' => 'id', 'type' => 'hidden', 'value' => $news->id]) : ''; ?>
+<div class="form-group">
+    <?= form_label(lang('image')); ?>
+    <?= form_input(['name' => 'image', 'id' => 'image', 'type' => 'hidden', 'value' => (isset($news) ? set_value('image', $news->image) : set_value('image'))]); ?>
+    <?= form_error('image', '<div class="text-danger">', '</div>'); ?>
+
+    <div class="dropzone" id="image_dropzone"></div>
+    <div class="text-danger" id="image_dropzone_error"></div>
+</div>
+<?= isset($news) ? form_input(['id' => 'id', 'name' => 'id', 'type' => 'hidden', 'value' => $news->id]) : ''; ?>
 <?= form_submit('submit', (isset($news) ? lang('update') : lang('create')), ['class' => 'btn btn-block btn-success']); ?>
 <?= form_close(); ?>
+
+<?php $this->load->view('backend/news/form.js.php'); // view ?>

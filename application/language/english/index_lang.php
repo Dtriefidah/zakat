@@ -22,6 +22,7 @@ $lang = [
     'field_must_contain_a_unique_value' => 'field must contain a unique value',
     'id' => 'Id',
     'image' => 'Image',
+    'images' => 'Images',
     'language' => 'Language',
     'name' => 'Name',
     'news' => 'News',

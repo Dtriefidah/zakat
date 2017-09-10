@@ -26,6 +26,23 @@
     <?= form_input(['class' => 'form-control', 'name' => 'price', 'required' => true, 'type' => 'number', 'value' => (isset($product) ? set_value('price', $product->price) : set_value('price'))]); ?>
     <?= form_error('price', '<div class="text-danger">', '</div>'); ?>
 </div>
-<?= isset($product) ? form_input(['name' => 'id', 'type' => 'hidden', 'value' => $product->id]) : ''; ?>
+<div class="form-group">
+    <?= form_label(lang('images')); ?>
+    <?= form_input(['class' => 'images', 'name' => 'images[]', 'type' => 'hidden']); ?>
+    <?= form_error('images', '<div class="text-danger">', '</div>'); ?>
+
+    <?php if (isset($product)) {
+        $images = json_decode($product->images);
+        foreach ($images as $image) {
+            echo form_input(['class' => 'images', 'name' => 'images[]', 'type' => 'hidden', 'value' => $image]);
+        }
+    } ?>
+
+    <div class="dropzone" id="images_dropzone"></div>
+    <div class="text-danger" id="images_dropzone_error"></div>
+</div>
+<?= isset($product) ? form_input(['id' => 'id', 'name' => 'id', 'type' => 'hidden', 'value' => $product->id]) : ''; ?>
 <?= form_submit('submit', (isset($product) ? lang('update') : lang('create')), ['class' => 'btn btn-block btn-success']); ?>
 <?= form_close(); ?>
+
+<?php $this->load->view('backend/products/form.js.php'); // view ?>

@@ -22,6 +22,7 @@ $lang = [
     'field_must_contain_a_unique_value' => 'bidang harus mengandung nilai unik',
     'id' => 'Id',
     'image' => 'Gambar',
+    'images' => 'Gambar',
     'language' => 'Bahasa',
     'name' => 'Nama',
     'news' => 'Berita',
