@@ -50,6 +50,7 @@ class News_Model extends CI_Model
      *      'category_id' => '1',
      *      'title' => 'title',
      *      'content' => 'content',
+     *      'image' => 'image',
      * ]
      */
     public function create($params = [])
@@ -160,6 +161,7 @@ class News_Model extends CI_Model
      *      'category_id' => 'category_id',
      *      'title' => 'title',
      *      'content' => 'content',
+     *      'image' => 'image',
      * ]
      */
     public function update($params = [])

@@ -6,10 +6,7 @@ $(document).ready(function() {
         maxFiles: 1,
         url: site_url+'backend/news/upload',
 
-        error: function(file, errorMessage) {
-            this.removeFile(file);
-            $('#image_dropzone_error').html(errorMessage);
-        },
+        error: function(file, errorMessage) { this.removeFile(file); $('#image_dropzone_error').html(errorMessage);},
         init: function() {
             var myDropzone = this;
             $.getJSON(site_url+'api/news/index/'+$('#id').val(), function(data) {
