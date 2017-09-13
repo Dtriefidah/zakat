@@ -52,16 +52,16 @@ class News_Model extends CI_Model
      *      'content' => 'content',
      *      'image' => 'image',
      * ]
+     * @return integer $id
      */
     public function create($params = [])
     {
-        $data = [
-            'category_id' => $params['category_id'],
-            'title' => $params['title'],
-            'content' => $params['content'],
-            // 'image' => $params['image'],
-            'created_at' => date('Y-m-d H:i:s'),
-        ];
+        $data = [];
+        if (isset($params['category_id'])) { $data['category_id'] = $params['category_id']; }
+        if (isset($params['title'])) { $data['title'] = $params['title']; }
+        if (isset($params['content'])) { $data['content'] = $params['content']; }
+        $data['created_at'] = date('Y-m-d H:i:s');
+
         $this->db->insert($this->table, $data);
         $id = $this->db->insert_id();
 
@@ -69,6 +69,8 @@ class News_Model extends CI_Model
         $data['image'] = $this->file_upload($params['image'], $this->upload->news_path.'/'.$id);
         $this->db->where('id', $id);
         $this->db->update($this->table, $data);
+
+        return $id;
     }
 
     public function delete($id = 0)
@@ -167,13 +169,11 @@ class News_Model extends CI_Model
     public function update($params = [])
     {
         $data = [];
-
         if (isset($params['category_id'])) { $data['category_id'] = $params['category_id']; }
         if (isset($params['title'])) {
             $data['title'] = $params['title'];
             $data['slug'] = url_title($params['title'].' '.$params['id'], '-', true);
         }
-
         if (isset($params['content'])) { $data['content'] = $params['content']; }
         if (isset($params['image'])) { $data['image'] = $this->file_upload($params['image'], $this->upload->news_path.'/'.$params['id']); }
 

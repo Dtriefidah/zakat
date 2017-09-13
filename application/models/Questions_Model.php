@@ -48,21 +48,24 @@ class Questions_Model extends CI_Model
      *      'title' => 'title',
      *      'content' => 'content'
      * ]
+     * @return integer $id
      */
     public function create($params = [])
     {
-        $data = [
-            'user_id' => $params['user_id'],
-            'title' => $params['title'],
-            'content' => $params['content'],
-            'created_at' => date('Y-m-d H:i:s'),
-        ];
+        $data = [];
+        if (isset($params['user_id'])) { $data['user_id'] = $params['user_id']; }
+        if (isset($params['title'])) { $data['title'] = $params['title']; }
+        if (isset($params['content'])) { $data['content'] = $params['content']; }
+        $data['created_at'] = date('Y-m-d H:i:s');
+
         $this->db->insert($this->table, $data);
         $id = $this->db->insert_id();
 
         $data['slug'] = url_title($params['title'].' '.$id, '-', true);
         $this->db->where('id', $id);
         $this->db->update($this->table, $data);
+
+        return $id;
     }
 
     public function delete($id = 0)
@@ -141,7 +144,6 @@ class Questions_Model extends CI_Model
     public function update($params = [])
     {
         $data = [];
-
         if (isset($params['user_id'])) { $data['user_id'] = $params['user_id']; }
         if (isset($params['title'])) {
             $data['title'] = $params['title'];

@@ -43,20 +43,22 @@ class Answers_Model extends CI_Model
     /**
      * @param array $params
      * [
+     *      'question_id' => '1',
      *      'user_id' => '1',
      *      'content' => 'content'
      * ]
+     * @return integer $id
      */
     public function create($params = [])
     {
-        $data = [
-            'question_id' => $params['question_id'],
-            'user_id' => $params['user_id'],
-            'content' => $params['content'],
-            'created_at' => date('Y-m-d H:i:s'),
-        ];
+        $data = [];
+        if (isset($params['question_id'])) { $data['question_id'] = $params['question_id']; }
+        if (isset($params['user_id'])) { $data['user_id'] = $params['user_id']; }
+        if (isset($params['content'])) { $data['content'] = $params['content']; }
+        $data['created_at'] = date('Y-m-d H:i:s');
+
         $this->db->insert($this->table, $data);
-        $id = $this->db->insert_id();
+        return $this->db->insert_id();
     }
 
     public function delete($id = 0)
@@ -130,7 +132,6 @@ class Answers_Model extends CI_Model
     public function update($params = [])
     {
         $data = [];
-
         if (isset($params['question_id'])) { $data['question_id'] = $params['question_id']; }
         if (isset($params['user_id'])) { $data['user_id'] = $params['user_id']; }
         if (isset($params['content'])) { $data['content'] = $params['content']; }

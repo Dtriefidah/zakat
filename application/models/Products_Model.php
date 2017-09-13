@@ -46,18 +46,18 @@ class Products_Model extends CI_Model
      * [
      *      'type' => 'Zakat Agriculture' / 'Zakat Farm Animals' / 'Zakat Gold and Silver' / 'Zakat Money' / 'Zakat Rikaz' / 'Zakat Trading',
      *      'name' => 'name',
-     *      'slug' => 'slug',
      *      'price' => '1',
      *      'images' => ['images'],
      * ]
+     * @return integer $id
      */
     public function create($params = [])
     {
-        $data = [
-            'type' => $params['type'],
-            'name' => $params['name'],
-            'price' => $params['price'],
-        ];
+        $data = [];
+        if (isset($params['type'])) { $data['type'] = $params['type']; }
+        if (isset($params['name'])) { $data['name'] = $params['name']; }
+        if (isset($params['price'])) { $data['price'] = $params['price']; }
+
         $this->db->insert($this->table, $data);
         $id = $this->db->insert_id();
 
@@ -65,6 +65,8 @@ class Products_Model extends CI_Model
         $data['images'] = $this->file_upload($params['images'], $this->upload->products_path.'/'.$id);
         $this->db->where('id', $id);
         $this->db->update($this->table, $data);
+
+        return $id;
     }
 
     public function delete($id = 0)
@@ -159,7 +161,6 @@ class Products_Model extends CI_Model
      * [
      *      'type' => 'Zakat Agriculture' / 'Zakat Farm Animals' / 'Zakat Gold and Silver' / 'Zakat Money' / 'Zakat Rikaz' / 'Zakat Trading',
      *      'name' => 'name',
-     *      'slug' => 'slug',
      *      'price' => '1',
      *      'images' => ['images'],
      * ]
@@ -167,7 +168,6 @@ class Products_Model extends CI_Model
     public function update($params = [])
     {
         $data = [];
-
         if (isset($params['type'])) { $data['type'] = $params['type']; }
         if (isset($params['name'])) {
             $data['name'] = $params['name'];

@@ -9,6 +9,7 @@
     <link href="<?= base_url('web/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/bootstrap4c-dropzone/component-dropzone.min.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/dynatable/jquery.dynatable.css'); ?>" rel="stylesheet" />
+    <link href="<?= base_url('web/summernote/summernote-bs4.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/default/custom.css'); ?>" rel="stylesheet" />
 
     <?php $this->load->view('backend/_partials/head'); ?>
@@ -17,10 +18,10 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="<?= site_url('backend/'); ?>">
+        <a class="navbar-brand" href="<?= site_url('backend'); ?>">
             <img height="30" src="<?= base_url('uploads/media/logo.png'); ?>" width="30">
         </a>
-        <a class="navbar-brand" href="<?= site_url('backend/'); ?>"><?= lang('zakat'); ?></a>
+        <a class="navbar-brand" href="<?= site_url('backend'); ?>"><?= lang('zakat'); ?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -78,6 +79,7 @@
     <script src="<?= base_url('web/popper.js/popper.min.js'); ?>"></script>
     <script src="<?= base_url('web/bootstrap/js/bootstrap.min.js'); ?>"></script>
     <script src="<?= base_url('web/dynatable/jquery.dynatable.js'); ?>"></script>
+    <script src="<?= base_url('web/summernote/summernote-bs4.min.js'); ?>"></script>
     <!-- Optional JavaScript -->
     <script src="<?= base_url('web/default/custom.js'); ?>"></script>
 </body>
