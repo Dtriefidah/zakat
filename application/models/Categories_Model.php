@@ -45,18 +45,21 @@ class Categories_Model extends CI_Model
      * [
      *      'name' => 'name',
      * ]
+     * return integer $id
      */
     public function create($params = [])
     {
-        $data = [
-            'name' => $params['name'],
-        ];
+        $data = [];
+        if (isset($params['name'])) { $data['name'] = $params['name']; }
+
         $this->db->insert($this->table, $data);
         $id = $this->db->insert_id();
 
         $data['slug'] = url_title($params['name'].' '.$id, '-', true);
         $this->db->where('id', $id);
         $this->db->update($this->table, $data);
+
+        return $id;
     }
 
     public function delete($id = 0)
@@ -122,12 +125,11 @@ class Categories_Model extends CI_Model
     public function update($params = [])
     {
         $data = [];
-
         if (isset($params['name'])) {
             $data['name'] = $params['name'];
             $data['slug'] = url_title($params['name'].' '.$params['id'], '-', true);
         }
-        
+
         $this->db->where('id', $params['id']);
         $this->db->update($this->table, $data);
     }

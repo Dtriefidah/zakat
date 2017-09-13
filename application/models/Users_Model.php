@@ -80,7 +80,6 @@ class Users_Model extends CI_Model
     public function create($params = [])
     {
         $data = [];
-
         if (isset($params['user_type'])) { $data['user_type'] = $params['user_type']; }
         if (isset($params['email'])) { $data['email'] = $params['email']; }
         if (isset($params['password'])) { $data['password'] = md5($params['password']); }
@@ -198,7 +197,6 @@ class Users_Model extends CI_Model
     public function update($params = [])
     {
         $data = [];
-
         if (isset($params['user_type'])) { $data['user_type'] = $params['user_type']; }
         if (isset($params['email'])) { $data['email'] = $params['email']; }
         if (isset($params['password'])) { $data['password'] = md5($params['password']); }
