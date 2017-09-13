@@ -1,6 +1,8 @@
 <script>
 Dropzone.autoDiscover = false;
 $(document).ready(function() {
+    var $content = $('#content').html($('#content').text()).summernote();
+
     var $image_dropzone = new Dropzone('#image_dropzone', {
         addRemoveLinks: true,
         maxFiles: 1,

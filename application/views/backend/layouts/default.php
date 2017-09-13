@@ -9,6 +9,7 @@
     <link href="<?= base_url('web/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/bootstrap4c-dropzone/component-dropzone.min.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/dynatable/jquery.dynatable.css'); ?>" rel="stylesheet" />
+    <link href="<?= base_url('web/summernote/summernote-bs4.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/default/custom.css'); ?>" rel="stylesheet" />
 
     <?php $this->load->view('backend/_partials/head'); ?>
@@ -78,6 +79,7 @@
     <script src="<?= base_url('web/popper.js/popper.min.js'); ?>"></script>
     <script src="<?= base_url('web/bootstrap/js/bootstrap.min.js'); ?>"></script>
     <script src="<?= base_url('web/dynatable/jquery.dynatable.js'); ?>"></script>
+    <script src="<?= base_url('web/summernote/summernote-bs4.min.js'); ?>"></script>
     <!-- Optional JavaScript -->
     <script src="<?= base_url('web/default/custom.js'); ?>"></script>
 </body>

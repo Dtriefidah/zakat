@@ -8,7 +8,6 @@
     <!-- Bootstrap CSS -->
     <link href="<?= base_url('web/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/MDBootstrap/css/mdb.min.css'); ?>" rel="stylesheet" />
-    <link href="<?= base_url('web/MDBootstrap/font/roboto/Roboto-Regular.ttf'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/default/frontend/layout/auth.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/default/custom.css'); ?>" rel="stylesheet" />
 </head>
