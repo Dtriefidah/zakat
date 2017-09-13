@@ -83,9 +83,12 @@
                         </div>
                     </li>
                     <?php if (! $is_login) : ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= site_url('auth/sign_in'); ?>"><?= lang('sign_in'); ?></a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= site_url('auth/sign_up'); ?>"><?= lang('sign_up'); ?></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= site_url('auth/sign_in'); ?>"><?= lang('sign_in'); ?></a>
+                        </li>
                     <?php endif; ?>
                     <?php if ($is_login) : ?>
                         <li class="nav-item">

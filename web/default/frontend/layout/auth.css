@@ -1,0 +1,13 @@
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+.card-sign-in {
+    margin: 0 auto;
+    max-width: 330px;
+}
+.card-sign-up {
+    margin: 0 auto;
+    max-width: 500px;
+}
