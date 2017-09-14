@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database', 'form_validation', 'session', 'upload', 'user_agent');
+$autoload['libraries'] = array('database', 'form_validation', 'pagination', 'session', 'upload', 'user_agent');
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('file', 'form', 'language', 'url');
+$autoload['helper'] = array('file', 'form', 'language', 'text', 'url');
 
 /*
 | -------------------------------------------------------------------

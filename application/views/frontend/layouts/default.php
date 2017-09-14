@@ -10,6 +10,8 @@
     <link href="<?= base_url('web/MDBootstrap/css/mdb.min.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/default/custom.css'); ?>" rel="stylesheet" />
 
+    <script src="<?= base_url('web/jquery/jquery.min.js'); ?>"></script>
+
     <style rel="stylesheet">
     main {
         padding-top: 3rem;
@@ -25,16 +27,16 @@
     .navbar {
         background-color: #3b295a;
     }
-
-    footer.page-footer {
-        background-color: #3b295a;
-        margin-top: 2rem;
-    }
     .navbar .dropdown-menu a:hover {
         color: #000 !important;
     }
     .navbar .btn-group .dropdown-menu a:active {
         color: #fff !important;
+    }
+    .is_stuck { padding-top: 4rem; }
+    footer.page-footer {
+        background-color: #3f51b5;
+        margin-top: 2rem;
     }
     </style>
 </head>
@@ -100,13 +102,17 @@
         </nav>
     </header><!--Main Navigation-->
 
-    <div class="container"><?= $content; ?></div>
+    <main>
+        <div class="container-fluid"><?= $content; ?></div>
+    </main>
+
+    <?php $this->load->view('frontend/_partials/foot'); ?>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="<?= base_url('web/jquery/jquery.min.js'); ?>"></script>
     <script src="<?= base_url('web/popper.js/popper.min.js'); ?>"></script>
     <script src="<?= base_url('web/bootstrap/js/bootstrap.min.js'); ?>"></script>
     <script src="<?= base_url('web/MDBootstrap/js/mdb.min.js'); ?>"></script>
+    <script src="<?= base_url('web/sticky-kit/jquery.sticky-kit.min.js'); ?>"></script>
     <!-- Optional JavaScript -->
     <script src="<?= base_url('web/default/custom.js'); ?>"></script>
 </body>
