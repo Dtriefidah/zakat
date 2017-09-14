@@ -2,13 +2,13 @@
 
 class Questions_Model extends CI_Model
 {
-    public $controller;
+    public $ci;
     public $table = 'questions';
 
     public function __construct()
     {
         parent::__construct();
-        $this->controller =& get_instance();
+        $this->ci =& get_instance();
         $this->load->model('Users_Model');
     }
 
@@ -16,29 +16,29 @@ class Questions_Model extends CI_Model
     {
         switch ($scenario) {
             case 'create' :
-                $this->controller->form_validation->set_rules('user_id', lang('user'), ['trim', 'required', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('title', lang('title'), ['trim', 'required', 'max_length[255]']);
-                $this->controller->form_validation->set_rules('content', lang('content'), ['trim', 'required']);
+                $this->ci->form_validation->set_rules('user_id', lang('user'), ['trim', 'required', 'integer', 'max_length[11]']);
+                $this->ci->form_validation->set_rules('title', lang('title'), ['trim', 'required', 'max_length[255]']);
+                $this->ci->form_validation->set_rules('content', lang('content'), ['trim', 'required']);
 
                 break;
             case 'update' :
-                $this->controller->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('user_id', lang('user'), ['trim', 'required', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('title', lang('title'), ['trim', 'required', 'max_length[255]']);
-                $this->controller->form_validation->set_rules('content', lang('content'), ['trim', 'required']);
+                $this->ci->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
+                $this->ci->form_validation->set_rules('user_id', lang('user'), ['trim', 'required', 'integer', 'max_length[11]']);
+                $this->ci->form_validation->set_rules('title', lang('title'), ['trim', 'required', 'max_length[255]']);
+                $this->ci->form_validation->set_rules('content', lang('content'), ['trim', 'required']);
 
                 break;
             default :
-                $this->controller->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('user_id', lang('user'), ['trim', 'required', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('title', lang('title'), ['trim', 'required', 'max_length[255]']);
-                $this->controller->form_validation->set_rules('slug', lang('slug'), ['trim', 'required', 'max_length[255]']);
-                $this->controller->form_validation->set_rules('content', lang('content'), ['trim', 'required']);
-                $this->controller->form_validation->set_rules('created_at', lang('created_at'), ['trim', 'required']);
+                $this->ci->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
+                $this->ci->form_validation->set_rules('user_id', lang('user'), ['trim', 'required', 'integer', 'max_length[11]']);
+                $this->ci->form_validation->set_rules('title', lang('title'), ['trim', 'required', 'max_length[255]']);
+                $this->ci->form_validation->set_rules('slug', lang('slug'), ['trim', 'required', 'max_length[255]']);
+                $this->ci->form_validation->set_rules('content', lang('content'), ['trim', 'required']);
+                $this->ci->form_validation->set_rules('created_at', lang('created_at'), ['trim', 'required']);
 
                 break;
         }
-        return $this->controller->form_validation->run();
+        return $this->ci->form_validation->run();
     }
 
     /**

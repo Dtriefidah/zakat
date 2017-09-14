@@ -2,7 +2,7 @@
 
 class News_Model extends CI_Model
 {
-    public $controller;
+    public $ci;
     public $table = 'news';
 
     public $image_name;
@@ -11,7 +11,7 @@ class News_Model extends CI_Model
     public function __construct()
     {
         parent::__construct();
-        $this->controller =& get_instance();
+        $this->ci =& get_instance();
         $this->load->model('Categories_Model');
     }
 
@@ -19,29 +19,29 @@ class News_Model extends CI_Model
     {
         switch ($scenario) {
             case 'create' :
-                $this->controller->form_validation->set_rules('category_id', lang('category'), ['trim', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('title', lang('title'), ['trim', 'required', 'max_length[255]']);
+                $this->ci->form_validation->set_rules('category_id', lang('category'), ['trim', 'integer', 'max_length[11]']);
+                $this->ci->form_validation->set_rules('title', lang('title'), ['trim', 'required', 'max_length[255]']);
 
                 break;
             case 'update' :
-                $this->controller->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('category_id', lang('category'), ['trim', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('title', lang('title'), ['trim', 'required', 'max_length[255]']);
+                $this->ci->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
+                $this->ci->form_validation->set_rules('category_id', lang('category'), ['trim', 'integer', 'max_length[11]']);
+                $this->ci->form_validation->set_rules('title', lang('title'), ['trim', 'required', 'max_length[255]']);
 
                 break;
             default :
-                $this->controller->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('category_id', lang('category'), ['trim', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('title', lang('title'), ['trim', 'required', 'max_length[255]']);
-                $this->controller->form_validation->set_rules('slug', lang('slug'), ['trim', 'required', 'max_length[255]']);
-                $this->controller->form_validation->set_rules('content', lang('content'), ['trim']);
-                $this->controller->form_validation->set_rules('image', lang('name'), ['trim', 'max_length[255]']);
+                $this->ci->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
+                $this->ci->form_validation->set_rules('category_id', lang('category'), ['trim', 'integer', 'max_length[11]']);
+                $this->ci->form_validation->set_rules('title', lang('title'), ['trim', 'required', 'max_length[255]']);
+                $this->ci->form_validation->set_rules('slug', lang('slug'), ['trim', 'required', 'max_length[255]']);
+                $this->ci->form_validation->set_rules('content', lang('content'), ['trim']);
+                $this->ci->form_validation->set_rules('image', lang('name'), ['trim', 'max_length[255]']);
 
-                $this->controller->form_validation->set_rules('created_at', lang('created_at'), ['trim', 'required']);
+                $this->ci->form_validation->set_rules('created_at', lang('created_at'), ['trim', 'required']);
 
                 break;
         }
-        return $this->controller->form_validation->run();
+        return $this->ci->form_validation->run();
     }
 
     /**
