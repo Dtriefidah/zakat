@@ -173,7 +173,7 @@ class News_Model extends CI_Model
         $this->db->from($this->table.' AS n');
         $this->db->join($this->Categories_Model->table.' AS c', 'c.id = n.category_id', 'LEFT');
 
-        if (isset($params['category_id'])) { $this->db->where_in('n.category_id', $params['category_id']); }
+        if (isset($params['category_id'])) { $this->db->where('n.category_id', $params['category_id']); }
         if (isset($params['title'])) { $this->db->where('n.title', $params['title']); }
         if (isset($params['slug'])) { $this->db->where('n.slug', $params['slug']); }
         if (isset($params['image'])) { $this->db->where('n.image', $params['image']); }

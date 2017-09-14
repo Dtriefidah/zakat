@@ -71,12 +71,8 @@ class Categories_Model extends CI_Model
      * @param array $params
      * [
      *      'id' => '1',
-     *      'user_type' => 'admin' / 'user',
-     *      'email' => 'email',
-     *      'password' => '******',
      *      'name' => 'name',
-     *      'address' => 'address',
-     *      'phone_number' => '123456',
+     *      'slug' => 'slug',
      * ]
      * @return object
      */
@@ -85,12 +81,8 @@ class Categories_Model extends CI_Model
         $this->db->from($this->table);
 
         if (isset($params['id'])) { $this->db->where('id', $params['id']); }
-        if (isset($params['user_type'])) { $this->db->where('user_type', $params['user_type']); }
-        if (isset($params['email'])) { $this->db->where('email', $params['email']); }
-        if (isset($params['password'])) { $this->db->where('password', md5($params['password'])); }
         if (isset($params['name'])) { $this->db->where('name', $params['name']); }
-        if (isset($params['address'])) { $this->db->where('address', $params['address']); }
-        if (isset($params['phone_number'])) { $this->db->where('phone_number', $params['phone_number']); }
+        if (isset($params['slug'])) { $this->db->where('slug', $params['slug']); }
 
         return $this->db->get()->row();
     }
