@@ -47,6 +47,32 @@ class News_Model extends CI_Model
     /**
      * @param array $params
      * [
+     *      'category_id' => 'category_id',
+     *      'title' => 'title',
+     *      'slug' => 'slug',
+     *      'content' => 'content',
+     *      'image' => 'image',
+     *      'created_at' => 'created_at',
+     *      'order_by' => 'n.created_at DESC',
+     * ]
+     * @return object
+     */
+    public function count($params = [])
+    {
+        $this->db->from($this->table);
+
+        if (isset($params['category_id'])) { $this->db->where('category_id', $params['category_id']); }
+        if (isset($params['title'])) { $this->db->where('title', $params['title']); }
+        if (isset($params['slug'])) { $this->db->where('slug', $params['slug']); }
+        if (isset($params['image'])) { $this->db->where('image', $params['image']); }
+        if (isset($params['created_at'])) { $this->db->where('created_at', $params['created_at']); }
+
+        return $this->db->count_all_results();
+    }
+
+    /**
+     * @param array $params
+     * [
      *      'category_id' => '1',
      *      'title' => 'title',
      *      'content' => 'content',
@@ -134,6 +160,8 @@ class News_Model extends CI_Model
      *      'image' => 'image',
      *      'created_at' => 'created_at',
      *      'order_by' => 'n.created_at DESC',
+     *      'limit' => '10',
+     *      'offset' => '0',
      * ]
      * @return object
      */
@@ -152,6 +180,7 @@ class News_Model extends CI_Model
         if (isset($params['created_at'])) { $this->db->where('n.created_at', $params['created_at']); }
 
         isset($params['order_by']) ? $this->db->order_by($params['order_by']) : $this->db->order_by('n.created_at DESC');
+        if (isset($params['limit'])) { $this->db->limit($params['limit'], $params['offset']); }
 
         return $this->db->get()->result();
     }
