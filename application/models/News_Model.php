@@ -5,6 +5,9 @@ class News_Model extends CI_Model
     public $controller;
     public $table = 'news';
 
+    public $image_name;
+    public $image_size;
+
     public function __construct()
     {
         parent::__construct();
@@ -47,44 +50,78 @@ class News_Model extends CI_Model
      *      'category_id' => '1',
      *      'title' => 'title',
      *      'content' => 'content',
+     *      'image' => 'image',
      * ]
+     * @return integer $id
      */
     public function create($params = [])
     {
-        $data = [
-            'category_id' => $params['category_id'],
-            'title' => $params['title'],
-            'content' => $params['content'],
-            // 'image' => $params['image'],
-            'created_at' => date('Y-m-d H:i:s'),
-        ];
+        $data = [];
+        if (isset($params['category_id'])) { $data['category_id'] = $params['category_id']; }
+        if (isset($params['title'])) { $data['title'] = $params['title']; }
+        if (isset($params['content'])) { $data['content'] = $params['content']; }
+        $data['created_at'] = date('Y-m-d H:i:s');
+
         $this->db->insert($this->table, $data);
         $id = $this->db->insert_id();
 
         $data['slug'] = url_title($params['title'].' '.$id, '-', true);
+        $data['image'] = $this->file_upload($params['image'], $this->upload->news_path.'/'.$id);
         $this->db->where('id', $id);
         $this->db->update($this->table, $data);
+
+        return $id;
     }
 
     public function delete($id = 0)
     {
         $this->db->delete($this->table, ['id' => $id]);
+        delete_files($this->upload->news_path.'/'.$id, true); // file_helper
+    }
+
+    public function file_upload($temp_file = '', $new_path = '')
+    {
+        $new_file = '';
+
+        if (file_exists($temp_file)) {
+            if (! is_dir($new_path)) { mkdir($new_path, 0755, true); }
+            $temp_file_info = get_file_info($temp_file);
+            $new_file = $new_path.'/'.$temp_file_info['name'];
+            rename($temp_file, $new_file);
+        }
+
+        foreach (glob($new_path.'/*') as $old_file) {
+            if (! in_array(basename($old_file), [basename($new_file)])) { unlink($old_file); }
+        }
+
+        return $new_file;
     }
 
     /**
      * @param array $params
      * [
      *      'id' => '1',
+     *      'return' => 'array' / 'object',
      * ]
      * @return object
      */
-    public function row($params = [])
+    public function row($params = [], $return = 'object')
     {
         $this->db->from($this->table);
 
         if (isset($params['id'])) { $this->db->where('id', $params['id']); }
 
-        return $this->db->get()->row();
+        if ($return == 'array') {
+            $row = $this->db->get()->row_array();
+
+            $file_info = get_file_info($row['image']);
+            $row['image_name'] = $file_info['name'];
+            $row['image_size'] = $file_info['size'];
+        } else if ($return == 'object') {
+            $row = $this->db->get()->row();
+        }
+
+        return $row;
     }
 
     /**
@@ -126,18 +163,19 @@ class News_Model extends CI_Model
      *      'category_id' => 'category_id',
      *      'title' => 'title',
      *      'content' => 'content',
+     *      'image' => 'image',
      * ]
      */
     public function update($params = [])
     {
         $data = [];
-
         if (isset($params['category_id'])) { $data['category_id'] = $params['category_id']; }
         if (isset($params['title'])) {
             $data['title'] = $params['title'];
             $data['slug'] = url_title($params['title'].' '.$params['id'], '-', true);
         }
         if (isset($params['content'])) { $data['content'] = $params['content']; }
+        if (isset($params['image'])) { $data['image'] = $this->file_upload($params['image'], $this->upload->news_path.'/'.$params['id']); }
 
         $this->db->where('id', $params['id']);
         $this->db->update($this->table, $data);

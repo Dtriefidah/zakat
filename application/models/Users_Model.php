@@ -4,6 +4,8 @@ class Users_Model extends CI_Model
 {
     public $controller;
     public $table = 'users';
+    public $user_type_admin = 'admin';
+    public $user_type_user = 'user';
 
     public function __construct()
     {
@@ -27,6 +29,14 @@ class Users_Model extends CI_Model
             case 'sign_in' :
                 $this->controller->form_validation->set_rules('email', lang('email'), ['trim', 'required', 'valid_email', 'max_length[100]']);
                 $this->controller->form_validation->set_rules('password', lang('password'), ['trim', 'required', 'max_length[32]', ['sign_in_callable', [$this, 'sign_in_check']]]);
+
+                break;
+            case 'sign_up' :
+                $this->controller->form_validation->set_rules('user_type', lang('user_type'), ['trim', 'required']);
+                $this->controller->form_validation->set_rules('email', lang('email'), ['trim', 'required', 'valid_email', 'max_length[100]', 'is_unique['.$this->table.'.email]']);
+                $this->controller->form_validation->set_rules('password', lang('password'), ['trim', 'required', 'max_length[32]']);
+                $this->controller->form_validation->set_rules('name', lang('name'), ['trim', 'required', 'max_length[100]']);
+                $this->controller->form_validation->set_rules('phone_number', lang('phone_number'), ['trim', 'required', 'max_length[16]']);
 
                 break;
             case 'update' :
@@ -65,18 +75,20 @@ class Users_Model extends CI_Model
      *      'address' => 'address',
      *      'phone_number' => '123456',
      * ]
+     * @return integer $id
      */
     public function create($params = [])
     {
-        $data = [
-            'user_type' => $params['user_type'],
-            'email' => $params['email'],
-            'password' => md5($params['password']),
-            'name' => $params['name'],
-            'address' => $params['address'],
-            'phone_number' => $params['phone_number'],
-        ];
+        $data = [];
+        if (isset($params['user_type'])) { $data['user_type'] = $params['user_type']; }
+        if (isset($params['email'])) { $data['email'] = $params['email']; }
+        if (isset($params['password'])) { $data['password'] = md5($params['password']); }
+        if (isset($params['name'])) { $data['name'] = $params['name']; }
+        if (isset($params['address'])) { $data['address'] = $params['address']; }
+        if (isset($params['phone_number'])) { $data['phone_number'] = $params['phone_number']; }
+
         $this->db->insert($this->table, $data);
+        return $this->db->insert_id();
     }
 
     public function delete($id = 0)
@@ -98,8 +110,8 @@ class Users_Model extends CI_Model
     {
         return [
             '' => '- '.lang('choose_user_type').' -',
-            'admin' => lang('admin'),
-            'user' => lang('user'),
+            $this->user_type_admin => lang('admin'),
+            $this->user_type_user => lang('user'),
         ];
     }
 
@@ -162,7 +174,7 @@ class Users_Model extends CI_Model
 
     public function sign_in_check()
     {
-        $count = $this->db->from($this->table)->where(['user_type' => 'admin', 'email' => $this->input->post('email'), 'password' => md5($this->input->post('password')) ])->count_all_results();
+        $count = $this->db->from($this->table)->where(['user_type' => $this->user_type_admin, 'email' => $this->input->post('email'), 'password' => md5($this->input->post('password')) ])->count_all_results();
         if ($count == 0) {
             $this->controller->form_validation->set_message('sign_in_callable', lang('these_credentials_do_not_match_our_records').'.');
             return false;
@@ -185,14 +197,12 @@ class Users_Model extends CI_Model
     public function update($params = [])
     {
         $data = [];
-
         if (isset($params['user_type'])) { $data['user_type'] = $params['user_type']; }
         if (isset($params['email'])) { $data['email'] = $params['email']; }
         if (isset($params['password'])) { $data['password'] = md5($params['password']); }
         if (isset($params['name'])) { $data['name'] = $params['name']; }
         if (isset($params['address'])) { $data['address'] = $params['address']; }
         if (isset($params['phone_number'])) { $data['phone_number'] = $params['phone_number']; }
-        if (isset($params['user_type'])) { $data['user_type'] = $params['user_type']; }
 
         $this->db->where('id', $params['id']);
         $this->db->update($this->table, $data);

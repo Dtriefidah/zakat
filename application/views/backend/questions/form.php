@@ -25,7 +25,7 @@
 
 
 <br />
-<?php if ($answers) : ?>
+<?php if (isset($answers) && count($answers) > 0) : ?>
     <table class="table table-bordered table-striped">
         <thead>
             <tr>

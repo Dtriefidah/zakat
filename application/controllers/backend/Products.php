@@ -1,49 +1,49 @@
 <?php
 
-class News extends Backend_Controller
+class Products extends Backend_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(['Categories_Model', 'News_Model']);
+        $this->load->model('Products_Model');
     }
 
     public function index()
     {
-        $vars['news'] = $this->News_Model->rows();
-        $this->render('backend/news/index', $vars);
+        $vars['products'] = $this->Products_Model->rows();
+        $this->render('backend/products/index', $vars);
     }
 
     public function create()
     {
-        if ($this->input->post() && $this->News_Model->validate('create')) {
-            $this->News_Model->create($this->input->post());
+        if ($this->input->post() && $this->Products_Model->validate('create')) {
+            $this->Products_Model->create($this->input->post());
             $this->session->set_flashdata('message', 'Data has been created');
-            redirect('backend/news');
+            redirect('backend/products');
         }
 
-        $vars['Categories_Model'] = $this->Categories_Model;
-        $this->render('backend/news/form', $vars);
+        $vars['Products_Model'] = $this->Products_Model;
+        $this->render('backend/products/form', $vars);
     }
 
     public function delete($id = 0)
     {
-        $this->News_Model->delete($id);
+        $this->Products_Model->delete($id);
         $this->session->set_flashdata('message', 'Data has been deleted');
-        redirect('backend/news');
+        redirect('backend/products');
     }
 
     public function update($id = 0)
     {
-        if ($this->input->post() && $this->News_Model->validate('update')) {
-            $this->News_Model->update($this->input->post());
+        if ($this->input->post() && $this->Products_Model->validate('update')) {
+            $this->Products_Model->update($this->input->post());
             $this->session->set_flashdata('message', 'Data has been updated');
-            redirect('backend/news');
+            redirect('backend/products');
         }
 
-        $vars['Categories_Model'] = $this->Categories_Model;
-        $vars['news'] = $this->News_Model->row(['id' => $id]);
-        $this->render('backend/news/form', $vars);
+        $vars['product'] = $this->Products_Model->row(['id' => $id]);
+        $vars['Products_Model'] = $this->Products_Model;
+        $this->render('backend/products/form', $vars);
     }
 
     public function upload()

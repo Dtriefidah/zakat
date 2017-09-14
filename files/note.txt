@@ -8,14 +8,24 @@ Requirements :
 - GitKraken (download and install) (100%)
 - Visual Studio Code (download and install) (100%)
 
-Done :
-
-Undone :
-- Backend Login
-- Backend Master Users
-- Backend Master Categories
-- Backend Master Posts
-- Backend Master Questions
-- Backend Master Answers
-- Backend Master Transactions
-- Backend Master Transactions Detail
+Done : 
+- Backend Login 
+- Backend Master Users 
+- Backend Master Categories 
+- Backend Master Posts 
+- Backend Master Questions 
+- Backend Master Answers 
+- Backend Master Product 
+- Frontend Register 
+- Frontend Login 
+- Frontend Tampilan Home 
+ 
+Undone : 
+- Backend Master Transactions 
+- Backend Master Transactions Detail 
+- Backend Report 
+- Frontend Tampilan Profil (Sejarah, Visi dan Misi, Program Kegiatan, Landasan Legal) 
+- Frontend Tampilan Info (info Zakat, Berita dan Majalah) 
+- Frontend Tampilan Calculator Zakat Fitrah 
+- Frontend Tampilan Calculator Zakat Mal (Zakat emas dan Perak, Zakat Uang, Zakat Perdagangan, Zakat Pertanian, Zakat Hewan ternak, Zakat Rikaz) 
+- Frontend Tampilan Contact

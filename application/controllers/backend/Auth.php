@@ -20,6 +20,7 @@ class Auth extends MY_Controller
 
     public function sign_out()
     {
+        delete_files($this->upload->temp_path); // file_helper
         $this->session->unset_userdata('user');
         redirect('backend/auth/sign_in');
     }
