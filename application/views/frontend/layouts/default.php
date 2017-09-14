@@ -44,7 +44,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top indigo">
             <a class="navbar-brand" href="<?= site_url(); ?>">
-                <img height="30" src="<?= base_url('uploads/media/logo.png'); ?>" width="30">
+                <img height="30" src="<?= base_url('uploads/media/logo.png'); ?>" width="30" />
             </a>
             <a class="navbar-brand" href="<?= site_url(); ?>"><?= lang('zakat'); ?></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

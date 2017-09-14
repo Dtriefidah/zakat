@@ -19,7 +19,7 @@
                 <!--Featured image -->
                 <div class="view overlay hm-white-light z-depth-1-half">
                     <a href="<?= site_url($post->slug); ?>">
-                        <img src="<?= $post->image; ?>" class="img-fluid " alt="">
+                        <img src="<?= $post->image; ?>" class="img-fluid " alt="" />
                     </a>
                 </div>
                 <br />

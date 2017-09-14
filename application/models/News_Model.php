@@ -127,6 +127,7 @@ class News_Model extends CI_Model
      * @param array $params
      * [
      *      'id' => '1',
+     *      'slug' => 'slug',
      *      'return' => 'array' / 'object',
      * ]
      * @return object
@@ -136,6 +137,7 @@ class News_Model extends CI_Model
         $this->db->from($this->table);
 
         if (isset($params['id'])) { $this->db->where('id', $params['id']); }
+        if (isset($params['slug'])) { $this->db->where('slug', $params['slug']); }
 
         if ($return == 'array') {
             $row = $this->db->get()->row_array();

@@ -18,28 +18,17 @@
 
                 <!--Featured image -->
                 <div class="view overlay hm-white-light z-depth-1-half">
-                    <a href="<?= site_url($post->slug); ?>">
-                        <img src="<?= $post->image; ?>" class="img-fluid " alt="" />
-                    </a>
+                    <img src="<?= $post->image; ?>" class="img-fluid " alt="" />
                 </div>
                 <br />
 
                 <!--Post excerpt-->
-                <p><?= word_limiter(strip_tags($post->content), 50, ' ...'); ?></p>
-
-                <!--"Read more" button-->
-                <a class="btn btn-info" href="<?= site_url($post->slug); ?>"><?= lang('read_more'); ?></a>
+                <p><?= $post->content; ?></p>
             </div>
             <!--/.Post-->
 
             <hr />
         <?php endforeach; ?>
-
-        <!--Pagination-->
-        <nav>
-            <ul class="pagination flex-center pg-dark  wow fadeIn" data-wow-delay="0.2s"><?= $news_pagination; ?></ul>
-        </nav>
-        <!--/.Pagination-->
     </div>
 
     <!--Sidebar-->
