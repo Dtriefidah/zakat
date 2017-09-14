@@ -7,6 +7,8 @@ Zakat with Codeigniter 3.
 - [bootstrap-material-design](https://github.com/mdbootstrap/bootstrap-material-design)
 - [dropzone](https://github.com/enyo/dropzone)
 - [jquery-dynatable](https://github.com/alfajango/jquery-dynatable)
+- [sticky-kit](https://github.com/leafo/sticky-kit)
+- [summernote](https://github.com/summernote/summernote/)
 
 ## Installation
 
