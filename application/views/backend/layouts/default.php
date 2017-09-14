@@ -73,7 +73,7 @@
         <?= $content; ?>
     </div>
 
-    <?php $this->load->view('backend/_partials/footer'); ?>
+    <?php $this->load->view('backend/_partials/foot'); ?>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="<?= base_url('web/popper.js/popper.min.js'); ?>"></script>

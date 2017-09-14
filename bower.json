@@ -16,6 +16,14 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "v4.0.0-beta"
+    "bootstrap": "v4.0.0-beta",
+    "bootstrap4c-dropzone": "^1.0.2",
+    "dropzone": "^5.1.1",
+    "dynatable": "^0.3.1",
+    "MDBootstrap": "^4.4.1",
+    "popper.js": "^1.12.5",
+    "sticky-kit": "^1.1.2",
+    "summernote": "^0.8.8",
+    "font-awesome": "^4.7.0"
   }
 }
