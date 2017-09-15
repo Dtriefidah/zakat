@@ -18,10 +18,10 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="<?= site_url('backend'); ?>">
+        <a class="navbar-brand" href="<?= site_url('backend/home'); ?>">
             <img height="30" src="<?= base_url('uploads/media/logo.png'); ?>" width="30" />
         </a>
-        <a class="navbar-brand" href="<?= site_url('backend'); ?>"><?= lang('zakat'); ?></a>
+        <a class="navbar-brand" href="<?= site_url('backend/home'); ?>"><?= lang('zakat'); ?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
