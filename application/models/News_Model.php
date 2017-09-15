@@ -140,11 +140,11 @@ class News_Model extends CI_Model
         if (isset($params['slug'])) { $this->db->where('slug', $params['slug']); }
 
         if ($return == 'array') {
-            $row = $this->db->get()->row_array();
-
-            $file_info = get_file_info($row['image']);
-            $row['image_name'] = $file_info['name'];
-            $row['image_size'] = $file_info['size'];
+            if ($row = $this->db->get()->row_array()) {
+                $file_info = get_file_info($row['image']);
+                $row['image_name'] = $file_info['name'];
+                $row['image_size'] = $file_info['size'];
+            }
         } else if ($return == 'object') {
             $row = $this->db->get()->row();
         }

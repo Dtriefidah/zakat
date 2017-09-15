@@ -128,11 +128,11 @@ class Pages_Model extends CI_Model
         if (isset($params['created_at'])) { $this->db->where('created_at', $params['created_at']); }
 
         if ($return == 'array') {
-            $row = $this->db->get()->row_array();
-
-            $file_info = get_file_info($row['image']);
-            $row['image_name'] = $file_info['name'];
-            $row['image_size'] = $file_info['size'];
+            if ($row = $this->db->get()->row_array()) {
+                $file_info = get_file_info($row['image']);
+                $row['image_name'] = $file_info['name'];
+                $row['image_size'] = $file_info['size'];
+            }
         } else if ($return == 'object') {
             $row = $this->db->get()->row();
         }
