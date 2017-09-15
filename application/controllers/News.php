@@ -25,4 +25,15 @@ class News extends Frontend_Controller
 
         $this->render('frontend/news/index', $vars);
     }
+
+    public function detail($slug = '')
+    {
+        ($news = $this->News_Model->row(['slug' => $slug])) ?: show_404();
+
+        $vars['categories'] = $this->Categories_Model->rows();
+        $vars['Categories_Model'] = $this->Categories_Model;
+        $vars['news'] = $news;
+
+        $this->render('frontend/news/detail', $vars);
+    }
 }

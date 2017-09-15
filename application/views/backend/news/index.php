@@ -15,15 +15,15 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($news as $i => $user) : ?>
+        <?php foreach ($news as $i => $row) : ?>
             <tr>
                 <td><?= $i + 1; ?></td>
-                <td><?= $user->title; ?></td>
-                <td><?= $user->category_name; ?></td>
-                <td><?= $user->created_at; ?></td>
+                <td><?= $row->title; ?></td>
+                <td><?= $row->category_name; ?></td>
+                <td><?= $row->created_at; ?></td>
                 <td>
-                    <?= anchor('backend/news/update/'.$user->id, lang('update')); ?> |
-                    <?= anchor('backend/news/delete/'.$user->id, lang('delete'), ['onclick' => "return confirm('".lang('are_you_sure_you_want_to_delete_this')."')"]); ?>
+                    <?= anchor('backend/news/update/'.$row->id, lang('update')); ?> |
+                    <?= anchor('backend/news/delete/'.$row->id, lang('delete'), ['onclick' => "return confirm('".lang('are_you_sure_you_want_to_delete_this')."')"]); ?>
                 </td>
             </tr>
         <?php endforeach; ?>

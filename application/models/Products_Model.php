@@ -2,13 +2,13 @@
 
 class Products_Model extends CI_Model
 {
-    public $controller;
+    public $ci;
     public $table = 'products';
 
     public function __construct()
     {
         parent::__construct();
-        $this->controller =& get_instance();
+        $this->ci =& get_instance();
         $this->load->model('Categories_Model');
     }
 
@@ -16,29 +16,29 @@ class Products_Model extends CI_Model
     {
         switch ($scenario) {
             case 'create' :
-                $this->controller->form_validation->set_rules('type', lang('type'), ['trim', 'required', 'max_length[255]']);
-                $this->controller->form_validation->set_rules('name', lang('name'), ['trim', 'required', 'max_length[100]']);
-                $this->controller->form_validation->set_rules('price', lang('price'), ['trim', 'required', 'integer', 'max_length[11]']);
+                $this->ci->form_validation->set_rules('type', lang('type'), ['trim', 'required', 'max_length[255]']);
+                $this->ci->form_validation->set_rules('name', lang('name'), ['trim', 'required', 'max_length[100]']);
+                $this->ci->form_validation->set_rules('price', lang('price'), ['trim', 'required', 'integer', 'max_length[11]']);
 
                 break;
             case 'update' :
-                $this->controller->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('type', lang('type'), ['trim', 'required', 'max_length[255]']);
-                $this->controller->form_validation->set_rules('name', lang('name'), ['trim', 'required', 'max_length[100]']);
-                $this->controller->form_validation->set_rules('price', lang('price'), ['trim', 'required', 'integer', 'max_length[11]']);
+                $this->ci->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
+                $this->ci->form_validation->set_rules('type', lang('type'), ['trim', 'required', 'max_length[255]']);
+                $this->ci->form_validation->set_rules('name', lang('name'), ['trim', 'required', 'max_length[100]']);
+                $this->ci->form_validation->set_rules('price', lang('price'), ['trim', 'required', 'integer', 'max_length[11]']);
 
                 break;
             default :
-                $this->controller->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('type', lang('type'), ['trim', 'required', 'max_length[255]']);
-                $this->controller->form_validation->set_rules('name', lang('name'), ['trim', 'required', 'max_length[100]']);
-                $this->controller->form_validation->set_rules('slug', lang('slug'), ['trim', 'required', 'max_length[255]']);
-                $this->controller->form_validation->set_rules('price', lang('price'), ['trim', 'required', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('images', lang('images'), ['trim']);
+                $this->ci->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
+                $this->ci->form_validation->set_rules('type', lang('type'), ['trim', 'required', 'max_length[255]']);
+                $this->ci->form_validation->set_rules('name', lang('name'), ['trim', 'required', 'max_length[100]']);
+                $this->ci->form_validation->set_rules('slug', lang('slug'), ['trim', 'required', 'max_length[255]']);
+                $this->ci->form_validation->set_rules('price', lang('price'), ['trim', 'required', 'integer', 'max_length[11]']);
+                $this->ci->form_validation->set_rules('images', lang('images'), ['trim']);
 
                 break;
         }
-        return $this->controller->form_validation->run();
+        return $this->ci->form_validation->run();
     }
 
     /**

@@ -14,14 +14,14 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($categories as $i => $user) : ?>
+        <?php foreach ($categories as $i => $category) : ?>
             <tr>
                 <td><?= $i + 1; ?></td>
-                <td><?= $user->name; ?></td>
-                <td><?= $user->slug; ?></td>
+                <td><?= $category->name; ?></td>
+                <td><?= $category->slug; ?></td>
                 <td>
-                    <?= anchor('backend/categories/update/'.$user->id, lang('update')); ?> |
-                    <?= anchor('backend/categories/delete/'.$user->id, lang('delete'), ['onclick' => "return confirm('".lang('are_you_sure_you_want_to_delete_this')."')"]); ?>
+                    <?= anchor('backend/categories/update/'.$category->id, lang('update')); ?> |
+                    <?= anchor('backend/categories/delete/'.$category->id, lang('delete'), ['onclick' => "return confirm('".lang('are_you_sure_you_want_to_delete_this')."')"]); ?>
                 </td>
             </tr>
         <?php endforeach; ?>
