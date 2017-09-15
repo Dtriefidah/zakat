@@ -175,7 +175,8 @@ class Pages_Model extends CI_Model
     public function template_options()
     {
         return [
-            'default' => 'default',
+            'default' => lang('default'),
+            'contact_us' => lang('contact_us'),
         ];
     }
 
