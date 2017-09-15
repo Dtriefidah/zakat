@@ -32,7 +32,7 @@ class News extends Frontend_Controller
 
         $vars['categories'] = $this->Categories_Model->rows();
         $vars['Categories_Model'] = $this->Categories_Model;
-        $vars['news'] = $this->News_Model->rows(['order_by' => 'created_at DESC', 'limit' => $this->limit, 'offset' => $this->input->get('offset')]);
+        $vars['news'] = $news;
 
         $this->render('frontend/news/detail', $vars);
     }
