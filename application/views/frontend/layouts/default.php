@@ -55,23 +55,23 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= lang('profile'); ?></a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="<?= site_url('history_gyd'); ?>"><?= lang('history_gyd'); ?></a>
-                            <a class="dropdown-item" href="<?= site_url('vision_&_mission'); ?>"><?= lang('vision_&_mission'); ?></a>
-                            <a class="dropdown-item" href="<?= site_url('profile'); ?>"><?= lang('profile'); ?></a>
+                            <a class="dropdown-item" href="<?= site_url('page/sejarah-gyd'); ?>"><?= lang('history_gyd'); ?></a>
+                            <a class="dropdown-item" href="<?= site_url('page/vision_&_mission'); ?>"><?= lang('vision_&_mission'); ?></a>
+                            <a class="dropdown-item" href="<?= site_url('page/profile'); ?>"><?= lang('profile'); ?></a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= lang('info'); ?></a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="<?= site_url('info_zakat'); ?>"><?= lang('info_zakat'); ?></a>
+                            <a class="dropdown-item" href="<?= site_url('page/info_zakat'); ?>"><?= lang('info_zakat'); ?></a>
                             <a class="dropdown-item" href="<?= site_url('news'); ?>"><?= lang('news'); ?></a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= lang('calculator'); ?></a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item waves-effect waves-light" href="#">Zakat Fitrah</a>
-                            <a class="dropdown-item" href="<?= site_url(); ?>">Zakat Mal</a>
+                            <a class="dropdown-item" href="#">Zakat Fitrah</a>
+                            <a class="dropdown-item" href="#">Zakat Mal</a>
                         </div>
                     </li>
                 </ul>
