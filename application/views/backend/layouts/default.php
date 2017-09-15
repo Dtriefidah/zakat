@@ -18,10 +18,10 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="<?= site_url('backend'); ?>">
-            <img height="30" src="<?= base_url('uploads/media/logo.png'); ?>" width="30">
+        <a class="navbar-brand" href="<?= site_url('backend/home'); ?>">
+            <img height="30" src="<?= base_url('uploads/media/logo.png'); ?>" width="30" />
         </a>
-        <a class="navbar-brand" href="<?= site_url('backend'); ?>"><?= lang('zakat'); ?></a>
+        <a class="navbar-brand" href="<?= site_url('backend/home'); ?>"><?= lang('zakat'); ?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,6 +30,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= lang('posts'); ?></a>
                     <div class="dropdown-menu">
+                        <a class="dropdown-item" href="<?= site_url('backend/pages'); ?>"><?= lang('pages'); ?></a>
                         <a class="dropdown-item" href="<?= site_url('backend/news'); ?>"><?= lang('news'); ?></a>
                         <a class="dropdown-item" href="<?= site_url('backend/categories'); ?>"><?= lang('categories'); ?></a>
                     </div>

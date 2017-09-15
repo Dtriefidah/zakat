@@ -15,15 +15,15 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($products as $i => $user) : ?>
+        <?php foreach ($products as $i => $product) : ?>
             <tr>
                 <td><?= $i + 1; ?></td>
-                <td><?= lang($user->type); ?></td>
-                <td><?= $user->name; ?></td>
-                <td><?= $user->price; ?></td>
+                <td><?= lang($product->type); ?></td>
+                <td><?= $product->name; ?></td>
+                <td><?= $product->price; ?></td>
                 <td>
-                    <?= anchor('backend/products/update/'.$user->id, lang('update')); ?> |
-                    <?= anchor('backend/products/delete/'.$user->id, lang('delete'), ['onclick' => "return confirm('".lang('are_you_sure_you_want_to_delete_this')."')"]); ?>
+                    <?= anchor('backend/products/update/'.$product->id, lang('update')); ?> |
+                    <?= anchor('backend/products/delete/'.$product->id, lang('delete'), ['onclick' => "return confirm('".lang('are_you_sure_you_want_to_delete_this')."')"]); ?>
                 </td>
             </tr>
         <?php endforeach; ?>

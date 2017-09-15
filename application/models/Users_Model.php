@@ -2,7 +2,7 @@
 
 class Users_Model extends CI_Model
 {
-    public $controller;
+    public $ci;
     public $table = 'users';
     public $user_type_admin = 'admin';
     public $user_type_user = 'user';
@@ -10,59 +10,59 @@ class Users_Model extends CI_Model
     public function __construct()
     {
         parent::__construct();
-        $this->controller =& get_instance();
+        $this->ci =& get_instance();
     }
 
     public function validate($scenario = '')
     {
         switch ($scenario) {
             case 'create' :
-                $this->controller->form_validation->set_rules('user_type', lang('user_type'), ['trim', 'required']);
-                $this->controller->form_validation->set_rules('email', lang('email'), ['trim', 'required', 'valid_email', 'max_length[100]', 'is_unique['.$this->table.'.email]']);
-                $this->controller->form_validation->set_rules('password', lang('password'), ['trim', 'required', 'max_length[32]']);
-                $this->controller->form_validation->set_rules('name', lang('name'), ['trim', 'required', 'max_length[100]']);
-                $this->controller->form_validation->set_rules('address', lang('address'), ['trim', 'required']);
+                $this->ci->form_validation->set_rules('user_type', lang('user_type'), ['trim', 'required']);
+                $this->ci->form_validation->set_rules('email', lang('email'), ['trim', 'required', 'valid_email', 'max_length[100]', 'is_unique['.$this->table.'.email]']);
+                $this->ci->form_validation->set_rules('password', lang('password'), ['trim', 'required', 'max_length[32]']);
+                $this->ci->form_validation->set_rules('name', lang('name'), ['trim', 'required', 'max_length[100]']);
+                $this->ci->form_validation->set_rules('address', lang('address'), ['trim', 'required']);
 
-                $this->controller->form_validation->set_rules('phone_number', lang('phone_number'), ['trim', 'required', 'max_length[16]']);
+                $this->ci->form_validation->set_rules('phone_number', lang('phone_number'), ['trim', 'required', 'max_length[16]']);
 
                 break;
             case 'sign_in' :
-                $this->controller->form_validation->set_rules('email', lang('email'), ['trim', 'required', 'valid_email', 'max_length[100]']);
-                $this->controller->form_validation->set_rules('password', lang('password'), ['trim', 'required', 'max_length[32]', ['sign_in_callable', [$this, 'sign_in_check']]]);
+                $this->ci->form_validation->set_rules('email', lang('email'), ['trim', 'required', 'valid_email', 'max_length[100]']);
+                $this->ci->form_validation->set_rules('password', lang('password'), ['trim', 'required', 'max_length[32]', ['sign_in_callable', [$this, 'sign_in_check']]]);
 
                 break;
             case 'sign_up' :
-                $this->controller->form_validation->set_rules('user_type', lang('user_type'), ['trim', 'required']);
-                $this->controller->form_validation->set_rules('email', lang('email'), ['trim', 'required', 'valid_email', 'max_length[100]', 'is_unique['.$this->table.'.email]']);
-                $this->controller->form_validation->set_rules('password', lang('password'), ['trim', 'required', 'max_length[32]']);
-                $this->controller->form_validation->set_rules('name', lang('name'), ['trim', 'required', 'max_length[100]']);
-                $this->controller->form_validation->set_rules('phone_number', lang('phone_number'), ['trim', 'required', 'max_length[16]']);
+                $this->ci->form_validation->set_rules('user_type', lang('user_type'), ['trim', 'required']);
+                $this->ci->form_validation->set_rules('email', lang('email'), ['trim', 'required', 'valid_email', 'max_length[100]', 'is_unique['.$this->table.'.email]']);
+                $this->ci->form_validation->set_rules('password', lang('password'), ['trim', 'required', 'max_length[32]']);
+                $this->ci->form_validation->set_rules('name', lang('name'), ['trim', 'required', 'max_length[100]']);
+                $this->ci->form_validation->set_rules('phone_number', lang('phone_number'), ['trim', 'required', 'max_length[16]']);
 
                 break;
             case 'update' :
-                $this->controller->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('user_type', lang('user_type'), ['trim', 'required']);
-                $this->controller->form_validation->set_rules('email', lang('email'), ['trim', 'required', 'valid_email', 'max_length[100]', ['email_callable', [$this, 'email_check']]]);
-                $this->controller->form_validation->set_rules('password', lang('password'), ['trim', 'max_length[32]']);
-                $this->controller->form_validation->set_rules('name', lang('name'), ['trim', 'required', 'max_length[100]']);
+                $this->ci->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
+                $this->ci->form_validation->set_rules('user_type', lang('user_type'), ['trim', 'required']);
+                $this->ci->form_validation->set_rules('email', lang('email'), ['trim', 'required', 'valid_email', 'max_length[100]', ['email_callable', [$this, 'email_check']]]);
+                $this->ci->form_validation->set_rules('password', lang('password'), ['trim', 'max_length[32]']);
+                $this->ci->form_validation->set_rules('name', lang('name'), ['trim', 'required', 'max_length[100]']);
 
-                $this->controller->form_validation->set_rules('address', lang('address'), ['trim', 'required']);
-                $this->controller->form_validation->set_rules('phone_number', lang('phone_number'), ['trim', 'required', 'max_length[16]']);
+                $this->ci->form_validation->set_rules('address', lang('address'), ['trim', 'required']);
+                $this->ci->form_validation->set_rules('phone_number', lang('phone_number'), ['trim', 'required', 'max_length[16]']);
 
                 break;
             default :
-                $this->controller->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
-                $this->controller->form_validation->set_rules('user_type', lang('user_type'), ['trim', 'required']);
-                $this->controller->form_validation->set_rules('email', lang('email'), ['trim', 'required', 'valid_email', 'max_length[100]']);
-                $this->controller->form_validation->set_rules('password', lang('password'), ['trim', 'required', 'max_length[32]']);
-                $this->controller->form_validation->set_rules('name', lang('name'), ['trim', 'required', 'max_length[100]']);
+                $this->ci->form_validation->set_rules('id', lang('id'), ['trim', 'required', 'integer', 'max_length[11]']);
+                $this->ci->form_validation->set_rules('user_type', lang('user_type'), ['trim', 'required']);
+                $this->ci->form_validation->set_rules('email', lang('email'), ['trim', 'required', 'valid_email', 'max_length[100]']);
+                $this->ci->form_validation->set_rules('password', lang('password'), ['trim', 'required', 'max_length[32]']);
+                $this->ci->form_validation->set_rules('name', lang('name'), ['trim', 'required', 'max_length[100]']);
 
-                $this->controller->form_validation->set_rules('address', lang('address'), ['trim', 'required']);
-                $this->controller->form_validation->set_rules('phone_number', lang('phone_number'), ['trim', 'required', 'max_length[16]']);
+                $this->ci->form_validation->set_rules('address', lang('address'), ['trim', 'required']);
+                $this->ci->form_validation->set_rules('phone_number', lang('phone_number'), ['trim', 'required', 'max_length[16]']);
 
                 break;
         }
-        return $this->controller->form_validation->run();
+        return $this->ci->form_validation->run();
     }
 
     /**
@@ -100,7 +100,7 @@ class Users_Model extends CI_Model
     {
         $count = $this->db->from($this->table)->where('id !=', $this->input->post('id'))->where('email', $this->input->post('email'))->count_all_results();
         if ($count > 0) {
-            $this->controller->form_validation->set_message('email_callable', '{field} '.lang('field_must_contain_a_unique_value').'.');
+            $this->ci->form_validation->set_message('email_callable', '{field} '.lang('field_must_contain_a_unique_value').'.');
             return false;
         }
         return true;
@@ -176,7 +176,7 @@ class Users_Model extends CI_Model
     {
         $count = $this->db->from($this->table)->where(['user_type' => $this->user_type_admin, 'email' => $this->input->post('email'), 'password' => md5($this->input->post('password')) ])->count_all_results();
         if ($count == 0) {
-            $this->controller->form_validation->set_message('sign_in_callable', lang('these_credentials_do_not_match_our_records').'.');
+            $this->ci->form_validation->set_message('sign_in_callable', lang('these_credentials_do_not_match_our_records').'.');
             return false;
         }
         return true;

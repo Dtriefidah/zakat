@@ -16,10 +16,10 @@ class MY_Pagination extends CI_Pagination
         // 'last_tag_close' => ',
 
         // 'next_link' => '>',
-        'next_tag_open' => '<li class="last">',
+        'next_tag_open' => '<li class="last page-item">',
         'next_tag_close' => '</li>',
         // 'prev_link' => '<',
-        'prev_tag_open' => '<li class="first">',
+        'prev_tag_open' => '<li class="first page-item">',
         'prev_tag_close' => '</li>',
 
         'cur_tag_open' => '<li class="page-item active"><a class="page-link">',
