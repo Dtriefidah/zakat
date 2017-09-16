@@ -19,7 +19,7 @@ class MY_Email extends CI_Email
             'starttls'  => true,
         ];
 
-        if (getenv('EMAIL_GMAIL') == true) {
+        if (getenv('EMAIL_GMAIL') === true) {
             $this->config['protocol'] = getenv('EMAIL_GMAIL_PROTOCOL');
             $this->config['smtp_host'] = getenv('EMAIL_GMAIL_HOST');
             $this->config['smtp_user'] = getenv('EMAIL_GMAIL_USER');
