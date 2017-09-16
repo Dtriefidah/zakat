@@ -127,7 +127,7 @@ class Questions_Model extends CI_Model
         if (isset($params['name'])) { $this->db->where('q.name', $params['name']); }
         if (isset($params['slug'])) { $this->db->where('q.slug', $params['slug']); }
 
-        isset($params['order_by']) ? $this->db->order_by($params['order_by']) : $this->db->order_by('q.title ASC');
+        isset($params['order_by']) ? $this->db->order_by($params['order_by']) : $this->db->order_by('q.created_at DESC');
 
         return $this->db->get()->result();
     }

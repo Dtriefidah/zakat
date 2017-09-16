@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Sep 16, 2017 at 12:30 PM
+-- Generation Time: Sep 16, 2017 at 02:05 PM
 -- Server version: 5.5.42
 -- PHP Version: 5.6.10
 
@@ -134,7 +134,15 @@ CREATE TABLE `questions` (
   `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `content` text COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `questions`
+--
+
+INSERT INTO `questions` (`id`, `user_id`, `title`, `slug`, `content`, `created_at`) VALUES
+(1, 1, 'anak saya sariawan', 'anak-saya-sariawan-1', 'dok saya mau bertanya... anak bayi saya umur 4 bulan 2 minggu... anak saya sariawan dok dan saya beli obat nymiko nystatin suspension... apakan anak saya boleh minum obat nymiko dok..mohon jelaskan dok saya masih belom paham dengan kegunaanya?', '2017-09-16 13:43:49'),
+(2, 1, 'Sudah lama saya mengalami haid dengan darah yang menggumpal', 'sudah-lama-saya-mengalami-haid-dengan-darah-yang-menggumpal-2', 'Dok saya mau bertanya.Sudah lama saya mengalami haid dengan darah yang menggumpal dan setelah masa haid berhenti,saya mengalami keputihan yang sering terjadi. Mengapa begitu dok? Apakah berbahaya? Minta penjelasannya dok. Terimakasih', '2017-09-16 13:44:16');
 
 -- --------------------------------------------------------
 
@@ -286,7 +294,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `transactions`
 --

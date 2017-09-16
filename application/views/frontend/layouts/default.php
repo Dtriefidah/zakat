@@ -74,6 +74,9 @@
                         </div>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="<?= site_url('question'); ?>"><?= lang('ask_us'); ?></a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="<?= site_url('page/hubungi-kami'); ?>"><?= lang('contact_us'); ?></a>
                     </li>
                 </ul>
