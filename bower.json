@@ -24,6 +24,7 @@
     "popper.js": "^1.12.5",
     "sticky-kit": "^1.1.2",
     "summernote": "^0.8.8",
-    "font-awesome": "^4.7.0"
+    "font-awesome": "^4.7.0",
+    "bootstrap-autohidingnavbar": "bs-autohide-navbar#^1.0.6"
   }
 }

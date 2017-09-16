@@ -35,6 +35,7 @@ $lang = [
     'info_zakat' => 'Info Zakat',
     'language' => 'Bahasa',
     'message' => 'Pesan',
+    'message_has_been_sent' => 'Pesan telah dikirim',
     'name' => 'Nama',
     'news' => 'Berita',
     'no' => 'No',

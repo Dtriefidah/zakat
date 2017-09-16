@@ -19,14 +19,8 @@ class Page extends Frontend_Controller
     {
         $this->load->model('form/Contact_Us');
 
-        // dump($_POST);
-        if ($this->input->post()) {
-            if ($this->Contact_Us->validate('contact_us')) {
+        if ($this->input->post() && $this->Contact_Us->validate('contact_us')) {
 
-            } else {
-                $this->session->set_flashdata('error', validation_errors());
-                redirect($this->agent->referrer());
-            }
         }
     }
 
@@ -36,6 +30,15 @@ class Page extends Frontend_Controller
 
         $vars['page'] = $page;
 
+        $this->detail_post($slug);
         $this->render('frontend/page/detail/'.$page->template, $vars);
+    }
+
+    public function detail_post($slug)
+    {
+        switch ($slug) {
+            case 'hubungi-kami' :
+                $this->contact_us_post(); break;
+        }
     }
 }

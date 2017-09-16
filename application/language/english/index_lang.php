@@ -38,6 +38,7 @@ $lang = [
     'language' => 'Language',
     'legal_basis' => 'Basis Legal',
     'message' => 'Message',
+    'message_has_been_sent' => 'Message has been sent',
     'name' => 'Name',
     'news' => 'News',
     'no' => 'No',
