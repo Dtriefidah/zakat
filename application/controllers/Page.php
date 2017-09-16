@@ -20,7 +20,18 @@ class Page extends Frontend_Controller
         $this->load->model('form/Contact_Us');
 
         if ($this->input->post() && $this->Contact_Us->validate('contact_us')) {
+            $config = $this->email->get_config();
 
+            $this->email->initialize($config);
+            $this->email->from($this->input->post('email'), $this->input->post('name'));
+            $this->email->to($config['smtp_user']);
+            $this->email->cc($this->input->post('email'));
+            $this->email->subject(lang('contact_us'));
+            $this->email->message($this->input->post('message'));
+            ($this->email->send()) ?: show_error($this->email->print_debugger());
+
+            $this->session->set_flashdata('message', lang('message_has_been_sent'));
+            redirect('hubungi-kami');
         }
     }
 

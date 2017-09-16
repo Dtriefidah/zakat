@@ -14,10 +14,6 @@
     <script src="<?= base_url('web/jquery/jquery.min.js'); ?>"></script>
 
     <style rel="stylesheet">
-    main {
-        padding-top: 3rem;
-        padding-bottom: 2rem;
-    }
     .extra-margins {
         margin-top: 1rem;
         margin-bottom: 2.5rem;

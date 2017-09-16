@@ -18,7 +18,7 @@ class Pages extends Backend_Controller
     {
         if ($this->input->post() && $this->Pages_Model->validate('create')) {
             $this->Pages_Model->create($this->input->post());
-            $this->session->set_flashdata('message', 'Data has been created');
+            $this->session->set_flashdata('message', lang('data_has_been_created'));
             redirect('backend/pages');
         }
 
@@ -29,7 +29,7 @@ class Pages extends Backend_Controller
     public function delete($id = 0)
     {
         $this->Pages_Model->delete($id);
-        $this->session->set_flashdata('message', 'Data has been deleted');
+        $this->session->set_flashdata('message', lang('data_has_been_deleted'));
         redirect('backend/pages');
     }
 
@@ -37,7 +37,7 @@ class Pages extends Backend_Controller
     {
         if ($this->input->post() && $this->Pages_Model->validate('update')) {
             $this->Pages_Model->update($this->input->post());
-            $this->session->set_flashdata('message', 'Data has been updated');
+            $this->session->set_flashdata('message', lang('data_has_been_updated'));
             redirect('backend/pages');
         }
 
