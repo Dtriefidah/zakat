@@ -59,6 +59,7 @@ $lang = [
     'program_activities' => 'Program Activities',
     'question' => 'Question',
     'question_has_been_created' => 'Question has been created',
+    'question_has_been_replied' => 'Question has been replied',
     'questions' => 'Questions',
     'read_more' => 'Read More',
     'reply' => 'Reply',

@@ -59,6 +59,7 @@ $lang = [
     'program_activities' => 'Program Kegiatan',
     'question' => 'Pertanyaan',
     'question_has_been_created' => 'Pertanyaan telah dibuat',
+    'question_has_been_replied' => 'Pertanyaan telah dibalas',
     'questions' => 'Pertanyaan',
     'read_more' => 'Baca Lebih Banyak',
     'reply' => 'Balas',

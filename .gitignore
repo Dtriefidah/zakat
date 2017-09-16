@@ -11,3 +11,4 @@ uploads/*
 vendor/*
 web/bower/*
 .env
+composer.lock
