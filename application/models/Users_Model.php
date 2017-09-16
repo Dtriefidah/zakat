@@ -174,7 +174,7 @@ class Users_Model extends CI_Model
 
     public function sign_in_check()
     {
-        $count = $this->db->from($this->table)->where(['user_type' => $this->user_type_admin, 'email' => $this->input->post('email'), 'password' => md5($this->input->post('password')) ])->count_all_results();
+        $count = $this->db->from($this->table)->where(['email' => $this->input->post('email'), 'password' => md5($this->input->post('password')) ])->count_all_results();
         if ($count == 0) {
             $this->ci->form_validation->set_message('sign_in_callable', lang('these_credentials_do_not_match_our_records').'.');
             return false;

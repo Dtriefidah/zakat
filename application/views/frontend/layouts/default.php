@@ -9,6 +9,7 @@
     <link href="<?= base_url('web/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/MDBootstrap/css/mdb.min.css'); ?>" rel="stylesheet" />
+    <link href="<?= base_url('web/MDBootstrap/css/mdb-custom.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/default/custom.css'); ?>" rel="stylesheet" />
 
     <script src="<?= base_url('web/jquery/jquery.min.js'); ?>"></script>
@@ -61,7 +62,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= lang('info'); ?></a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="<?= site_url('page/info_zakat'); ?>"><?= lang('info_zakat'); ?></a>
+                            <a class="dropdown-item" href="<?= site_url('page/info-zakat'); ?>"><?= lang('info_zakat'); ?></a>
                             <a class="dropdown-item" href="<?= site_url('news'); ?>"><?= lang('news'); ?></a>
                         </div>
                     </li>
@@ -71,6 +72,9 @@
                             <a class="dropdown-item" href="#">Zakat Fitrah</a>
                             <a class="dropdown-item" href="#">Zakat Mal</a>
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= site_url('question'); ?>"><?= lang('ask_us'); ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= site_url('page/hubungi-kami'); ?>"><?= lang('contact_us'); ?></a>
@@ -115,6 +119,8 @@
     <script src="<?= base_url('web/popper.js/popper.min.js'); ?>"></script>
     <script src="<?= base_url('web/bootstrap/js/bootstrap.min.js'); ?>"></script>
     <script src="<?= base_url('web/bootstrap-autohidingnavbar/jquery.bootstrap-autohidingnavbar.min.js'); ?>"></script>
+    <script src="<?= base_url('web/initial.js/initial.min.js'); ?>"></script>
+    <script src="<?= base_url('web/initial.js/initial-custom.js'); ?>"></script>
     <script src="<?= base_url('web/MDBootstrap/js/mdb.min.js'); ?>"></script>
     <script src="<?= base_url('web/sticky-kit/jquery.sticky-kit.min.js'); ?>"></script>
     <!-- Optional JavaScript -->

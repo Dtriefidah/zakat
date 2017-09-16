@@ -47,13 +47,13 @@ class News_Model extends CI_Model
     /**
      * @param array $params
      * [
+     *      'id' => 'id',
      *      'category_id' => 'category_id',
      *      'title' => 'title',
      *      'slug' => 'slug',
      *      'content' => 'content',
      *      'image' => 'image',
      *      'created_at' => 'created_at',
-     *      'order_by' => 'n.created_at DESC',
      * ]
      * @return object
      */
@@ -128,8 +128,8 @@ class News_Model extends CI_Model
      * [
      *      'id' => '1',
      *      'slug' => 'slug',
-     *      'return' => 'array' / 'object',
      * ]
+     * @param string $return 'array' / 'object'
      * @return object
      */
     public function row($params = [], $return = 'object')
