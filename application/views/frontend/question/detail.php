@@ -56,8 +56,8 @@
         <a class="btn btn-blue-grey" href="<?= $last_url; ?>">
             <i class="fa fa-arrow-circle-left"></i> <?= lang('back'); ?>
         </a>
-        <button class="btn btn-warning" name="create" type="submit">
-            <i class="fa fa-pencil"></i> <?= lang('create'); ?>
+        <button class="btn btn-warning" name="reply" type="submit" value="reply">
+            <i class="fa fa fa-pencil-square-o"></i> <?= lang('reply'); ?>
         </button>
     </div>
 </div>

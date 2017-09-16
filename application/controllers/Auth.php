@@ -15,8 +15,8 @@ class Auth extends MY_Controller
             $user = $this->Users_Model->row(['email' => $this->input->post('email'), 'password' => $this->input->post('password')]);
             $this->session->set_userdata('user', $user);
 
-            $last_url = $this->input->get('last_url');
-            $last_url ? redirect(base64_decode($last_url)) : redirect();
+            $last_url = base64_decode($this->input->get('last_url'));
+            $last_url ? redirect($last_url) : redirect();
         }
         $this->render('frontend/auth/sign_in');
     }

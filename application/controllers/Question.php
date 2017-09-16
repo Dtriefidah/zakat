@@ -29,17 +29,15 @@ class Question extends Frontend_Controller
     {
         ($this->is_login()) ?: redirect('auth/sign_in?last_url='.base64_encode(current_url_with_params()));
 
-        $last_url = base64_decode($this->input->get('last_url'));
-        $last_url ?: $last_url = site_url('question');
-
-        $vars['last_url'] = $last_url;
+        $vars['last_url'] = $last_url = base64_decode($this->input->get('last_url'));
+        $vars['next_url'] = $next_url = ($last_url ? $last_url : 'question');
 
         if ($this->input->post()) {
             $_POST['user_id'] = $this->user->id;
             if ($this->Questions_Model->validate('create')) {
                 $this->Questions_Model->create($this->input->post());
                 $this->session->set_flashdata('message', lang('question_has_been_created'));
-                redirect($last_url);
+                redirect($next_url);
             }
         }
 
@@ -50,17 +48,13 @@ class Question extends Frontend_Controller
     {
         ($question = $this->Questions_Model->row(['slug' => $slug])) ?: show_404();
 
-        $last_url = base64_decode($this->input->get('last_url'));
-        $last_url ?: $last_url = site_url('question');
-
-        $vars['last_url'] = $last_url;
         $vars['answers'] = $this->Answers_Model->rows(['question_id' => $question->id, 'order_by' => 'created_at ASC']);
-        $vars['last_url'] = $last_url;
+        $vars['last_url'] = base64_decode($this->input->get('last_url'));
         $vars['question'] = $question;
 
-        if ($this->input->post()) {
+        if ($this->input->post('reply')) {
             $_POST['question_id'] = $question->id;
-            $_POST['user_id'] = $this->user->id;
+            $_POST['user_id'] = ($this->user ? $this->user->id : '');
             if ($this->Answers_Model->validate('create')) {
                 $this->Answers_Model->create($this->input->post());
                 $this->session->set_flashdata('message', lang('question_has_been_replied'));
