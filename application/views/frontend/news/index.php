@@ -18,7 +18,7 @@
                 <!--Featured image -->
                 <div align="center" class="view overlay hm-white-light z-depth-1-half">
                     <a href="<?= site_url($post->slug); ?>">
-                        <img src="<?= base_url($post->image); ?>" class="img-fluid " alt="" />
+                        <img alt="" class="feature-image img-fluid" src="<?= base_url($post->image); ?>" />
                     </a>
                 </div>
 

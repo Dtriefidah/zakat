@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Sep 15, 2017 at 07:08 PM
+-- Generation Time: Sep 16, 2017 at 12:30 PM
 -- Server version: 5.5.42
 -- PHP Version: 5.6.10
 
@@ -92,7 +92,7 @@ CREATE TABLE `pages` (
   `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `template` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `pages`
@@ -103,7 +103,8 @@ INSERT INTO `pages` (`id`, `title`, `slug`, `content`, `image`, `template`, `cre
 (2, 'Visi dan Misi', 'visi-dan-misi', '<p>“Menjadi organisasi sosial terdepan dalam mewujudkan masa depan Yatim &amp; Dhuafa“&nbsp;</p><p><br></p><p>MISI&nbsp;</p><p>1. Pemberdayaan Potensi Yatim &amp; Dhuafa.&nbsp;</p><p>2. Menjadi fasilitator yang memiliki integritas.&nbsp;</p><p>3. Menjadi organisasi yang profesional dan modern.&nbsp;</p><p>4. Menjadi organisasi yang lebih peduli terhadap lingkungan hidup.</p>', '', 'default', '2017-09-15 04:50:46'),
 (3, 'Program Kegiatan', 'program-kegiatan', '<p>Program Kegiatan Content</p>', '', 'default', '2017-09-15 16:42:28'),
 (4, 'Landasan Legal', 'landasan-legal', '<p>Landasan Legal Content</p>', '', 'default', '2017-09-15 16:48:23'),
-(5, 'Hubungi Kami', 'hubungi-kami', '<h3 style="box-sizing: border-box; font-family: FontAwesome; margin-top: 20px; margin-bottom: 10px; font-size: 24px;">Kantor Pelayanan</h3><p style="box-sizing: border-box; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; font-family: FontAwesome; font-size: 20px;">Virgin Island NA-7 De Latinos, BSD Rawa Buntu Kec. serpong Tangsel</p><ul><li style="box-sizing: border-box; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; font-family: FontAwesome; font-size: 20px;">Phone : 021 9355 5981</li><li style="box-sizing: border-box; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; font-family: FontAwesome; font-size: 20px;">E-mail :&nbsp;<a href="mailto:griyayatimdhuafa@gmail.com" style="background: rgb(255, 255, 255); box-sizing: border-box;">griyayatimdhuafa@gmail.com</a></li><li style="box-sizing: border-box; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; font-family: FontAwesome; font-size: 20px;">Operational : Senin - Jum''at: 08.00 - 17.00 wib</li></ul>', '', 'contact_us', '2017-09-15 16:56:19');
+(5, 'Hubungi Kami', 'hubungi-kami', '<h3 style="box-sizing: border-box; font-family: FontAwesome; margin-top: 20px; margin-bottom: 10px; font-size: 24px;">Kantor Pelayanan</h3><p style="box-sizing: border-box; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; font-family: FontAwesome; font-size: 20px;">Virgin Island NA-7 De Latinos, BSD Rawa Buntu Kec. serpong Tangsel</p><ul><li style="box-sizing: border-box; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; font-family: FontAwesome; font-size: 20px;">Phone : 021 9355 5981</li><li style="box-sizing: border-box; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; font-family: FontAwesome; font-size: 20px;">E-mail :&nbsp;<a href="mailto:griyayatimdhuafa@gmail.com" style="background: rgb(255, 255, 255); box-sizing: border-box;">griyayatimdhuafa@gmail.com</a></li><li style="box-sizing: border-box; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; font-family: FontAwesome; font-size: 20px;">Operational : Senin - Jum''at: 08.00 - 17.00 wib</li></ul>', '', 'contact_us', '2017-09-15 16:56:19'),
+(6, 'Info Zakat', 'info-zakat', '<p>Info Zakat Content</p>', '', 'default', '2017-09-16 12:14:28');
 
 -- --------------------------------------------------------
 
@@ -177,14 +178,15 @@ CREATE TABLE `users` (
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `address` text COLLATE utf8_unicode_ci NOT NULL,
   `phone_number` varchar(16) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `user_type`, `email`, `password`, `name`, `address`, `phone_number`) VALUES
-(1, 'admin', 'admin@email.com', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'Jakarta', '081122223333');
+(1, 'admin', 'admin@email.com', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'Jakarta', '081122223333'),
+(2, 'user', 'redzjovi@gmail.com', 'defac44447b57f152d14f30cea7a73cb', 'Jovi', '', '087877118199');
 
 --
 -- Indexes for dumped tables
@@ -274,7 +276,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `products`
 --
@@ -299,7 +301,7 @@ ALTER TABLE `transaction_detail`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --

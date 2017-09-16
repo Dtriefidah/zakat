@@ -9,6 +9,7 @@
     <link href="<?= base_url('web/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/MDBootstrap/css/mdb.min.css'); ?>" rel="stylesheet" />
+    <link href="<?= base_url('web/MDBootstrap/css/mdb-custom.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/default/custom.css'); ?>" rel="stylesheet" />
 
     <script src="<?= base_url('web/jquery/jquery.min.js'); ?>"></script>
@@ -61,7 +62,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= lang('info'); ?></a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="<?= site_url('page/info_zakat'); ?>"><?= lang('info_zakat'); ?></a>
+                            <a class="dropdown-item" href="<?= site_url('page/info-zakat'); ?>"><?= lang('info_zakat'); ?></a>
                             <a class="dropdown-item" href="<?= site_url('news'); ?>"><?= lang('news'); ?></a>
                         </div>
                     </li>
