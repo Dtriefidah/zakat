@@ -1,7 +1,12 @@
 <script>
 Dropzone.autoDiscover = false;
 $(document).ready(function() {
-    var $content = $('#content').html($('#content').text()).summernote();
+    var $content_summernote = $('#content_summernote').html($('#content_summernote').text()).summernote({
+        callbacks: {
+            onImageUpload: function(files) { for (var i = files.length - 1; i >= 0; i--) { summernoteSendFile(files[i], site_url+'api/uploads/summernote', this); } },
+        },
+        maxHeight: 500,
+    });
 
     var $image_dropzone = new Dropzone('#image_dropzone', {
         addRemoveLinks: true,

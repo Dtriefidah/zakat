@@ -2,8 +2,6 @@
 
 class Page extends Frontend_Controller
 {
-    protected $limit = 1;
-
     public function __construct()
     {
         parent::__construct();
@@ -31,7 +29,7 @@ class Page extends Frontend_Controller
             ($this->email->send()) ?: show_error($this->email->print_debugger());
 
             $this->session->set_flashdata('message', lang('message_has_been_sent'));
-            redirect('hubungi-kami');
+            redirect('page/hubungi-kami', 'refresh');
         }
     }
 
