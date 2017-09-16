@@ -18,7 +18,7 @@ class Questions extends Backend_Controller
     {
         if ($this->input->post() && $this->Questions_Model->validate('create')) {
             $this->Questions_Model->create($this->input->post());
-            $this->session->set_flashdata('message', 'Data has been created');
+            $this->session->set_flashdata('message', lang('data_has_been_created'));
             redirect('backend/questions');
         }
 
@@ -29,7 +29,7 @@ class Questions extends Backend_Controller
     public function delete($id = 0)
     {
         $this->Questions_Model->delete($id);
-        $this->session->set_flashdata('message', 'Data has been deleted');
+        $this->session->set_flashdata('message', lang('data_has_been_deleted'));
         redirect('backend/questions');
     }
 
@@ -37,7 +37,7 @@ class Questions extends Backend_Controller
     {
         if ($this->input->post() && $this->Questions_Model->validate('update')) {
             $this->Questions_Model->update($this->input->post());
-            $this->session->set_flashdata('message', 'Data has been updated');
+            $this->session->set_flashdata('message', lang('data_has_been_updated'));
             redirect('backend/questions');
         }
 

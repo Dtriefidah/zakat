@@ -18,7 +18,7 @@ class Products extends Backend_Controller
     {
         if ($this->input->post() && $this->Products_Model->validate('create')) {
             $this->Products_Model->create($this->input->post());
-            $this->session->set_flashdata('message', 'Data has been created');
+            $this->session->set_flashdata('message', lang('data_has_been_created'));
             redirect('backend/products');
         }
 
@@ -29,7 +29,7 @@ class Products extends Backend_Controller
     public function delete($id = 0)
     {
         $this->Products_Model->delete($id);
-        $this->session->set_flashdata('message', 'Data has been deleted');
+        $this->session->set_flashdata('message', lang('data_has_been_deleted'));
         redirect('backend/products');
     }
 
@@ -37,7 +37,7 @@ class Products extends Backend_Controller
     {
         if ($this->input->post() && $this->Products_Model->validate('update')) {
             $this->Products_Model->update($this->input->post());
-            $this->session->set_flashdata('message', 'Data has been updated');
+            $this->session->set_flashdata('message', lang('data_has_been_updated'));
             redirect('backend/products');
         }
 

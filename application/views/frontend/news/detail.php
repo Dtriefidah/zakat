@@ -13,13 +13,11 @@
                 } ?>
                 <?= date('d M Y', strtotime($news->created_at)); ?>
             </h6>
-            <br />
 
             <!--Featured image -->
             <div align="center" class="view overlay hm-white-light z-depth-1-half">
                 <img src="<?= $news->image; ?>" class="img-fluid " alt="" />
             </div>
-            <br />
 
             <!--Post excerpt-->
             <p><?= $news->content; ?></p>
