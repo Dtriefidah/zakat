@@ -4,7 +4,7 @@ $(document).ready(function() {
     var $images_dropzone = new Dropzone('#images_dropzone', {
         addRemoveLinks: true,
         maxFiles: 5,
-        url: site_url+'backend/products/upload',
+        url: site_url+'api/products/upload',
 
         error: function(file, errorMessage) { this.removeFile(file); $('#images_dropzone_error').html(errorMessage); },
         init: function() {

@@ -11,7 +11,7 @@ $(document).ready(function() {
     var $image_dropzone = new Dropzone('#image_dropzone', {
         addRemoveLinks: true,
         maxFiles: 1,
-        url: site_url+'backend/pages/upload',
+        url: site_url+'api/pages/upload',
 
         error: function(file, errorMessage) { this.removeFile(file); $('#image_dropzone_error').html(errorMessage);},
         init: function() {
