@@ -79,6 +79,7 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="<?= base_url('web/popper.js/popper.min.js'); ?>"></script>
     <script src="<?= base_url('web/bootstrap/js/bootstrap.min.js'); ?>"></script>
+    <script src="<?= base_url('web/bootstrap-autohidingnavbar/jquery.bootstrap-autohidingnavbar.min.js'); ?>"></script>
     <script src="<?= base_url('web/dynatable/jquery.dynatable.js'); ?>"></script>
     <script src="<?= base_url('web/summernote/summernote-bs4.min.js'); ?>"></script>
     <!-- Optional JavaScript -->

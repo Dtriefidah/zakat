@@ -7,16 +7,13 @@
 
     <!-- Bootstrap CSS -->
     <link href="<?= base_url('web/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" />
+    <link href="<?= base_url('web/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/MDBootstrap/css/mdb.min.css'); ?>" rel="stylesheet" />
     <link href="<?= base_url('web/default/custom.css'); ?>" rel="stylesheet" />
 
     <script src="<?= base_url('web/jquery/jquery.min.js'); ?>"></script>
 
     <style rel="stylesheet">
-    main {
-        padding-top: 3rem;
-        padding-bottom: 2rem;
-    }
     .extra-margins {
         margin-top: 1rem;
         margin-bottom: 2.5rem;
@@ -56,8 +53,9 @@
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= lang('profile'); ?></a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="<?= site_url('page/sejarah-gyd'); ?>"><?= lang('history_gyd'); ?></a>
-                            <a class="dropdown-item" href="<?= site_url('page/vision_&_mission'); ?>"><?= lang('vision_&_mission'); ?></a>
-                            <a class="dropdown-item" href="<?= site_url('page/profile'); ?>"><?= lang('profile'); ?></a>
+                            <a class="dropdown-item" href="<?= site_url('page/visi-dan-misi'); ?>"><?= lang('vision_and_mission'); ?></a>
+                            <a class="dropdown-item" href="<?= site_url('page/program-kegiatan'); ?>"><?= lang('program_activities'); ?></a>
+                            <a class="dropdown-item" href="<?= site_url('page/landasan-legal'); ?>"><?= lang('legal_basis'); ?></a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -73,6 +71,9 @@
                             <a class="dropdown-item" href="#">Zakat Fitrah</a>
                             <a class="dropdown-item" href="#">Zakat Mal</a>
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= site_url('page/hubungi-kami'); ?>"><?= lang('contact_us'); ?></a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
@@ -103,7 +104,9 @@
     </header><!--Main Navigation-->
 
     <main>
-        <div class="container-fluid"><?= $content; ?></div>
+        <div class="container-fluid">
+            <?php $this->load->view('frontend/_partials/messages'); ?><?= $content; ?>
+        </div>
     </main>
 
     <?php $this->load->view('frontend/_partials/foot'); ?>
@@ -111,6 +114,7 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="<?= base_url('web/popper.js/popper.min.js'); ?>"></script>
     <script src="<?= base_url('web/bootstrap/js/bootstrap.min.js'); ?>"></script>
+    <script src="<?= base_url('web/bootstrap-autohidingnavbar/jquery.bootstrap-autohidingnavbar.min.js'); ?>"></script>
     <script src="<?= base_url('web/MDBootstrap/js/mdb.min.js'); ?>"></script>
     <script src="<?= base_url('web/sticky-kit/jquery.sticky-kit.min.js'); ?>"></script>
     <!-- Optional JavaScript -->

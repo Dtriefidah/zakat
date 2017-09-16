@@ -18,7 +18,7 @@ class Answers extends Backend_Controller
     {
         if ($this->input->post() && $this->Answers_Model->validate('create')) {
             $this->Answers_Model->create($this->input->post());
-            $this->session->set_flashdata('message', 'Data has been created');
+            $this->session->set_flashdata('message', lang('data_has_been_created'));
             redirect('backend/answers');
         }
 
@@ -30,7 +30,7 @@ class Answers extends Backend_Controller
     public function delete($id = 0, $last_url = '')
     {
         $this->Answers_Model->delete($id);
-        $this->session->set_flashdata('message', 'Data has been deleted');
+        $this->session->set_flashdata('message', lang('data_has_been_deleted'));
         empty($last_url) ? redirect('backend/answers') : redirect(base64_decode($last_url));
     }
 
@@ -38,7 +38,7 @@ class Answers extends Backend_Controller
     {
         if ($this->input->post() && $this->Answers_Model->validate('update')) {
             $this->Answers_Model->update($this->input->post());
-            $this->session->set_flashdata('message', 'Data has been updated');
+            $this->session->set_flashdata('message', lang('data_has_been_updated'));
             empty($last_url) ? redirect('backend/answers') : redirect(base64_decode($last_url));
         }
 

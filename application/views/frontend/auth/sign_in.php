@@ -1,5 +1,5 @@
 <div class="card card-sign-in text-center">
-    <?= form_open('', ['class' => '']); ?>
+    <?= form_open(''); ?>
     <div class="card-header indigo white-text">
         <?= lang('please_sign_in'); ?>
     </div>
@@ -13,10 +13,12 @@
         <div class="md-form">
             <?= form_label(lang('email'), 'email'); ?>
             <?= form_input(['class' => 'form-control', 'id' => 'email', 'name' => 'email', 'required' => true, 'type' => 'email', 'value' => set_value('email')]); ?>
+            <?= form_error('email', '<h6 class="text-danger"><small>', '</small></h6>'); ?>
         </div>
         <div class="md-form">
             <?= form_label(lang('password'), 'password'); ?>
             <?= form_password(['class' => 'form-control', 'id' => 'password', 'name' => 'password', 'required' => true, 'value' => set_value('password')]); ?>
+            <?= form_error('password', '<h6 class="text-danger"><small>', '</small></h6>'); ?>
         </div>
     </div>
     <div class="card-footer text-muted white-text">
