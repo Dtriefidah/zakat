@@ -119,6 +119,8 @@
     <script src="<?= base_url('web/popper.js/popper.min.js'); ?>"></script>
     <script src="<?= base_url('web/bootstrap/js/bootstrap.min.js'); ?>"></script>
     <script src="<?= base_url('web/bootstrap-autohidingnavbar/jquery.bootstrap-autohidingnavbar.min.js'); ?>"></script>
+    <script src="<?= base_url('web/initial.js/initial.min.js'); ?>"></script>
+    <script src="<?= base_url('web/initial.js/initial-custom.js'); ?>"></script>
     <script src="<?= base_url('web/MDBootstrap/js/mdb.min.js'); ?>"></script>
     <script src="<?= base_url('web/sticky-kit/jquery.sticky-kit.min.js'); ?>"></script>
     <!-- Optional JavaScript -->

@@ -58,4 +58,6 @@ $route['news'] = 'news/index';
 $route['page/contact_us_post'] = 'page/contact_us_post';
 $route['page/(:any)'] = 'page/detail/$1';
 $route['question'] = 'question/index';
+$route['question/create'] = 'question/create';
+$route['question/(:any)'] = 'question/detail/$1';
 $route['(:any)'] = 'news/detail/$1';

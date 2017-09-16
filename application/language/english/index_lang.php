@@ -61,6 +61,7 @@ $lang = [
     'question_has_been_created' => 'Question has been created',
     'questions' => 'Questions',
     'read_more' => 'Read More',
+    'reply' => 'Reply',
     'send' => 'Send',
     'sign_in' => 'Sign In',
     'sign_out' => 'Sign Out',

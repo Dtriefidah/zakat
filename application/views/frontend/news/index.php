@@ -33,11 +33,7 @@
             <hr />
         <?php endforeach; ?>
 
-        <!--Pagination-->
-        <nav>
-            <ul class="pagination flex-center pg-dark  wow fadeIn" data-wow-delay="0.2s"><?= $news_pagination; ?></ul>
-        </nav>
-        <!--/.Pagination-->
+        <nav><ul class="flex-center pagination pg-dark"><?= $news_pagination; ?></ul></nav>
     </div>
 
     <!--Sidebar-->

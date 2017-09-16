@@ -61,6 +61,7 @@ $lang = [
     'question_has_been_created' => 'Pertanyaan telah dibuat',
     'questions' => 'Pertanyaan',
     'read_more' => 'Baca Lebih Banyak',
+    'reply' => 'Balas',
     'send' => 'Kirim',
     'sign_in' => 'Masuk',
     'sign_out' => 'Keluar',

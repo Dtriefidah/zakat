@@ -44,9 +44,35 @@ class Questions_Model extends CI_Model
     /**
      * @param array $params
      * [
+     *      'id' => 'id',
+     *      'user_id' => 'user_id',
+     *      'title' => 'title',
+     *      'slug' => 'slug',
+     *      'content' => 'content',
+     *      'created_at' => 'created_at',
+     * ]
+     * @return object
+     */
+    public function count($params = [])
+    {
+        $this->db->from($this->table);
+
+        if (isset($params['id'])) { $this->db->where('id', $params['id']); }
+        if (isset($params['user_id'])) { $this->db->where('user_id', $params['user_id']); }
+        if (isset($params['title'])) { $this->db->where('title', $params['title']); }
+        if (isset($params['slug'])) { $this->db->where('slug', $params['slug']); }
+        if (isset($params['content'])) { $this->db->where('content', $params['content']); }
+        if (isset($params['created_at'])) { $this->db->where('created_at', $params['created_at']); }
+
+        return $this->db->count_all_results();
+    }
+
+    /**
+     * @param array $params
+     * [
      *      'user_id' => '1',
      *      'title' => 'title',
-     *      'content' => 'content'
+     *      'content' => 'content',
      * ]
      * @return integer $id
      */
@@ -83,27 +109,29 @@ class Questions_Model extends CI_Model
     /**
      * @param array $params
      * [
-     *      'id' => '1',
-     *      'user_type' => 'admin' / 'user',
-     *      'email' => 'email',
-     *      'password' => '******',
-     *      'name' => 'name',
-     *      'address' => 'address',
-     *      'phone_number' => '123456',
+     *      'id' => 'id',
+     *      'user_id' => 'user_id',
+     *      'title' => 'title',
+     *      'slug' => 'slug',
+     *      'content' => 'content',
+     *      'created_at' => 'created_at',
      * ]
      * @return object
      */
     public function row($params = [])
     {
-        $this->db->from($this->table);
+        $this->db->select('q.*');
+        $this->db->select('u.name AS user_name');
 
-        if (isset($params['id'])) { $this->db->where('id', $params['id']); }
-        if (isset($params['user_type'])) { $this->db->where('user_type', $params['user_type']); }
-        if (isset($params['email'])) { $this->db->where('email', $params['email']); }
-        if (isset($params['password'])) { $this->db->where('password', md5($params['password'])); }
-        if (isset($params['name'])) { $this->db->where('name', $params['name']); }
-        if (isset($params['address'])) { $this->db->where('address', $params['address']); }
-        if (isset($params['phone_number'])) { $this->db->where('phone_number', $params['phone_number']); }
+        $this->db->from($this->table.' AS q');
+        $this->db->join($this->Users_Model->table.' AS u', 'u.id = q.user_id', 'LEFT');
+
+        if (isset($params['id'])) { $this->db->where('q.id', $params['id']); }
+        if (isset($params['user_id'])) { $this->db->where('q.user_id', $params['user_id']); }
+        if (isset($params['title'])) { $this->db->where('q.title', $params['title']); }
+        if (isset($params['slug'])) { $this->db->where('q.slug', $params['slug']); }
+        if (isset($params['content'])) { $this->db->where('q.content', $params['content']); }
+        if (isset($params['created_at'])) { $this->db->where('q.created_at', $params['created_at']); }
 
         return $this->db->get()->row();
     }
@@ -111,8 +139,12 @@ class Questions_Model extends CI_Model
     /**
      * @param array $params
      * [
-     *      'name' => 'name',
+     *      'id' => 'id',
+     *      'user_id' => 'user_id',
+     *      'title' => 'title',
      *      'slug' => 'slug',
+     *      'content' => 'content',
+     *      'created_at' => 'created_at',
      * ]
      * @return object
      */
@@ -124,10 +156,15 @@ class Questions_Model extends CI_Model
         $this->db->from($this->table.' AS q');
         $this->db->join($this->Users_Model->table.' AS u', 'u.id = q.user_id', 'LEFT');
 
-        if (isset($params['name'])) { $this->db->where('q.name', $params['name']); }
+        if (isset($params['id'])) { $this->db->where('q.id', $params['id']); }
+        if (isset($params['user_id'])) { $this->db->where('q.user_id', $params['user_id']); }
+        if (isset($params['title'])) { $this->db->where('q.title', $params['title']); }
         if (isset($params['slug'])) { $this->db->where('q.slug', $params['slug']); }
+        if (isset($params['content'])) { $this->db->where('q.content', $params['content']); }
+        if (isset($params['created_at'])) { $this->db->where('q.created_at', $params['created_at']); }
 
         isset($params['order_by']) ? $this->db->order_by($params['order_by']) : $this->db->order_by('q.created_at DESC');
+        if (isset($params['limit'])) { $this->db->limit($params['limit'], $params['offset']); }
 
         return $this->db->get()->result();
     }

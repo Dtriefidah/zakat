@@ -2,17 +2,26 @@
 
 class Question extends Frontend_Controller
 {
+    protected $limit = 5;
+
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Questions_Model');
+        $this->load->model(['Answers_Model', 'Questions_Model']);
     }
 
     public function index()
     {
         $vars['last_url'] = current_url_with_params();
-        $vars['questions'] = $this->Questions_Model->rows();
-        dump($vars);
+        $vars['questions'] = $this->Questions_Model->rows(['limit' => $this->limit, 'offset' => $this->input->get('offset')]);
+
+        $config = $this->pagination->bootstrap_material;
+        $config['base_url'] = current_url();
+        $config['per_page'] = $this->limit;
+        $config['total_rows'] = $this->Questions_Model->count();
+        $this->pagination->initialize($config);
+        $vars['questions_pagination'] = $this->pagination->create_links();
+
         $this->render('frontend/question/index', $vars);
     }
 
@@ -20,58 +29,45 @@ class Question extends Frontend_Controller
     {
         ($this->is_login()) ?: redirect('auth/sign_in?last_url='.base64_encode(current_url_with_params()));
 
-        $vars['last_url'] = $last_url = base64_decode($this->input->get('last_url'));
+        $last_url = base64_decode($this->input->get('last_url'));
+        $last_url ?: $last_url = site_url('question');
+
+        $vars['last_url'] = $last_url;
 
         if ($this->input->post()) {
             $_POST['user_id'] = $this->user->id;
             if ($this->Questions_Model->validate('create')) {
                 $this->Questions_Model->create($this->input->post());
                 $this->session->set_flashdata('message', lang('question_has_been_created'));
-
-                $last_url = $this->input->get('last_url');
-                $last_url ? redirect(base64_decode($last_url)) : redirect('question');
+                redirect($last_url);
             }
         }
 
         $this->render('frontend/question/create', $vars);
     }
 
-    // delete
-    public function contact_us_post()
-    {
-        $this->load->model('form/Contact_Us');
-
-        if ($this->input->post() && $this->Contact_Us->validate('contact_us')) {
-            $config = $this->email->get_config();
-
-            $this->email->initialize($config);
-            $this->email->from($this->input->post('email'), $this->input->post('name'));
-            $this->email->to($config['smtp_user']);
-            $this->email->cc($this->input->post('email'));
-            $this->email->subject(lang('contact_us'));
-            $this->email->message($this->input->post('message'));
-            ($this->email->send()) ?: show_error($this->email->print_debugger());
-
-            $this->session->set_flashdata('message', lang('message_has_been_sent'));
-            redirect('page/hubungi-kami', 'refresh');
-        }
-    }
-
     public function detail($slug = '')
     {
-        ($page = $this->Pages_Model->row(['slug' => $slug])) ?: show_404();
+        ($question = $this->Questions_Model->row(['slug' => $slug])) ?: show_404();
 
-        $vars['page'] = $page;
+        $last_url = base64_decode($this->input->get('last_url'));
+        $last_url ?: $last_url = site_url('question');
 
-        $this->detail_post($slug);
-        $this->render('frontend/page/detail/'.$page->template, $vars);
-    }
+        $vars['last_url'] = $last_url;
+        $vars['answers'] = $this->Answers_Model->rows(['question_id' => $question->id, 'order_by' => 'created_at ASC']);
+        $vars['last_url'] = $last_url;
+        $vars['question'] = $question;
 
-    public function detail_post($slug)
-    {
-        switch ($slug) {
-            case 'hubungi-kami' :
-                $this->contact_us_post(); break;
+        if ($this->input->post()) {
+            $_POST['question_id'] = $question->id;
+            $_POST['user_id'] = $this->user->id;
+            if ($this->Answers_Model->validate('create')) {
+                $this->Answers_Model->create($this->input->post());
+                $this->session->set_flashdata('message', lang('question_has_been_replied'));
+                redirect(current_url_with_params());
+            }
         }
+
+        $this->render('frontend/question/detail', $vars);
     }
 }

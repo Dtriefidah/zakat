@@ -1,5 +1,5 @@
-<div class="card card-sign-in text-center">
-    <?= form_open(''); ?>
+<?= form_open(''); ?>
+<div class="card card-sign-in text-center">    
     <div class="card-header indigo white-text"><?= lang('question'); ?></div>
     <div class="card-body">
         <div class="md-form">
@@ -14,8 +14,12 @@
         </div>
     </div>
     <div class="card-footer text-muted white-text">
-        <a class="btn btn-blue-grey" href="<?= $last_url; ?>"><?= lang('back'); ?></a>
-        <?= form_submit(['class' => 'btn indigo', 'name' => 'create', 'value' => lang('create')]); ?>
+        <a class="btn btn-blue-grey" href="<?= $last_url; ?>">
+            <i class="fa fa-arrow-circle-left"></i> <?= lang('back'); ?>
+        </a>
+        <button class="btn btn-warning" name="create" type="submit">
+            <i class="fa fa-pencil"></i> <?= lang('create'); ?>
+        </button>
     </div>
-    <?= form_close(); ?>
 </div>
+<?= form_close(); ?>
