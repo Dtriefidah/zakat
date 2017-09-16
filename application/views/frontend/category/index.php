@@ -14,7 +14,6 @@
                     } ?>
                     <?= date('d M Y', strtotime($post->created_at)); ?>
                 </h6>
-                <br />
 
                 <!--Featured image -->
                 <div align="center" class="view overlay hm-white-light z-depth-1-half">
@@ -22,7 +21,6 @@
                         <img src="<?= base_url($post->image); ?>" class="img-fluid " alt="" />
                     </a>
                 </div>
-                <br />
 
                 <!--Post excerpt-->
                 <p><?= word_limiter(strip_tags($post->content), 50, ' ...'); ?></p>
