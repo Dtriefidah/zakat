@@ -82,6 +82,7 @@
     <script src="<?= base_url('web/bootstrap-autohidingnavbar/jquery.bootstrap-autohidingnavbar.min.js'); ?>"></script>
     <script src="<?= base_url('web/dynatable/jquery.dynatable.js'); ?>"></script>
     <script src="<?= base_url('web/summernote/summernote-bs4.min.js'); ?>"></script>
+    <script src="<?= base_url('web/summernote/summernote-bs4-custom.js'); ?>"></script>
     <!-- Optional JavaScript -->
     <script src="<?= base_url('web/default/custom.js'); ?>"></script>
 </body>
