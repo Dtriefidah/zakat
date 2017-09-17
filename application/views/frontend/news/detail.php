@@ -15,9 +15,11 @@
             </h6>
 
             <!--Featured image -->
-            <div align="center" class="view overlay hm-white-light z-depth-1-half">
-                <img src="<?= $news->image; ?>" class="img-fluid " alt="" />
-            </div>
+            <?php if ($news->image) : ?>
+                <div align="center" class="z-depth-1-half">
+                    <img class="feature-image img-fluid" src="<?= base_url($news->image); ?>" />
+                </div>
+            <?php endif; ?>
 
             <!--Post excerpt-->
             <p><?= $news->content; ?></p>

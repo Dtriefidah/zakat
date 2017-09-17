@@ -8,9 +8,11 @@
             <h1 class="h1-responsive font-bold"><?= anchor($page->slug, $page->title); ?></h1>
 
             <!--Featured image -->
-            <div align="center" class="view overlay hm-white-light z-depth-1-half">
-                <img src="<?= $page->image; ?>" class="img-fluid " alt="" />
-            </div>
+            <?php if ($page->image) : ?>
+                <div align="center" class="z-depth-1-half">
+                    <img class="feature-image img-fluid" src="<?= base_url($page->image); ?>" />
+                </div>
+            <?php endif; ?>
 
             <!--Post excerpt-->
             <p><?= $page->content; ?></p>
