@@ -31,7 +31,7 @@ class Answers extends Backend_Controller
     {
         $this->Answers_Model->delete($id);
         $this->session->set_flashdata('message', lang('data_has_been_deleted'));
-        empty($last_url) ? redirect('backend/answers') : redirect(base64_decode($last_url));
+        $last_url ? redirect(base64_decode($last_url)) : redirect('backend/answers');
     }
 
     public function update($id = 0, $last_url = '')
@@ -39,7 +39,7 @@ class Answers extends Backend_Controller
         if ($this->input->post() && $this->Answers_Model->validate('update')) {
             $this->Answers_Model->update($this->input->post());
             $this->session->set_flashdata('message', lang('data_has_been_updated'));
-            empty($last_url) ? redirect('backend/answers') : redirect(base64_decode($last_url));
+            $last_url ? redirect(base64_decode($last_url)) : redirect('backend/answers');
         }
 
         $vars['answer'] = $this->Answers_Model->row(['id' => $id]);

@@ -1,8 +1,6 @@
 <div class="card card-sign-up text-center">
     <?= form_open('', ['class' => '']); ?>
-    <div class="card-header indigo white-text">
-        <?= lang('sign_up'); ?>
-    </div>
+    <div class="card-header indigo white-text"><?= lang('sign_up'); ?></div>
     <?= validation_errors() ? '<div class="alert alert-danger" role="alert">'.validation_errors().'</div>' : ''; ?>
     <div class="card-body">
         <div class="md-form">

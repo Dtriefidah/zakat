@@ -1,8 +1,6 @@
 <div class="card card-sign-in text-center">
-    <?= form_open(''); ?>
-    <div class="card-header indigo white-text">
-        <?= lang('please_sign_in'); ?>
-    </div>
+    <?= form_open(current_url_with_params()); ?>
+    <div class="card-header indigo white-text"><?= lang('please_sign_in'); ?></div>
     <div class="card-footer">
         <?= lang('do_not_have_account'); ?>?
         <?= lang('sign_up'); ?>
