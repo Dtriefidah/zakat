@@ -1,6 +1,13 @@
 <script>
 Dropzone.autoDiscover = false;
 $(document).ready(function() {
+    var $content_summernote = $('#content_summernote').html($('#content_summernote').text()).summernote({
+        callbacks: {
+            onImageUpload: function(files) { for (var i = files.length - 1; i >= 0; i--) { summernoteSendFile(files[i], site_url+'api/uploads/summernote', this); } },
+        },
+        maxHeight: 500,
+    });
+
     var $images_dropzone = new Dropzone('#images_dropzone', {
         addRemoveLinks: true,
         maxFiles: 5,
