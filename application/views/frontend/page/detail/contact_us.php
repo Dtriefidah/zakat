@@ -8,9 +8,11 @@
             <h1 class="h1-responsive font-bold"><?= anchor($page->slug, $page->title); ?></h1>
 
             <!--Featured image -->
-            <div align="center" class="view overlay hm-white-light z-depth-1-half">
-                <img src="<?= $page->image; ?>" class="img-fluid " alt="" />
-            </div>
+            <?php if ($page->image) : ?>
+                <div align="center" class="z-depth-1-half">
+                    <img class="feature-image img-fluid" src="<?= base_url($page->image); ?>" />
+                </div>
+            <?php endif; ?>
 
             <!--Post excerpt-->
             <?= $page->content; ?>
@@ -48,7 +50,7 @@
                         <?= form_textarea(['class' => 'form-control md-textarea', 'id' => 'message', 'name' => 'message', 'required' => true, 'rows' => 5, 'value' => set_value('message')]); ?>
                         <?= form_error('message', '<h6 class="text-danger"><small>', '</small></h6>'); ?>
                     </div>
-                    <button class="btn btn-block indigo" name="sign_in" type="submit"><?= lang('send'); ?><i class="fa fa-paper-plane-o ml-1"></i></button>
+                    <button class="btn btn-block btn-warning" name="send" type="submit" value="send"><?= lang('send'); ?><i class="fa fa-paper-plane-o ml-1"></i></button>
                     <?= form_close(); ?>
                 </div>
             </div>

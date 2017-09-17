@@ -1,5 +1,5 @@
 <?= form_open(''); ?>
-<div class="card card-sign-in text-center">    
+<div class="card card-sign-in text-center">
     <div class="card-header indigo white-text"><?= lang('question'); ?></div>
     <div class="card-body">
         <div class="md-form">
@@ -13,7 +13,7 @@
             <?= form_error('content', '<h6 class="text-danger"><small>', '</small></h6>'); ?>
         </div>
     </div>
-    <div class="card-footer text-muted white-text">
+    <div class="card-footer">
         <a class="btn btn-blue-grey" href="<?= $last_url; ?>">
             <i class="fa fa-arrow-circle-left"></i> <?= lang('back'); ?>
         </a>
