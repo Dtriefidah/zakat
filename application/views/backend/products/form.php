@@ -27,6 +27,11 @@
     <?= form_error('price', '<div class="text-danger">', '</div>'); ?>
 </div>
 <div class="form-group">
+    <?= form_label(lang('content')); ?>
+    <?= form_textarea(['class' => 'form-control', 'id' => 'content_summernote', 'name' => 'content', 'rows' => 3, 'value' => (isset($page) ? set_value('content', $page->content) : set_value('content'))]); ?>
+    <?= form_error('content', '<div class="text-danger">', '</div>'); ?>
+</div>
+<div class="form-group">
     <?= form_label(lang('images')); ?>
     <?= form_input(['class' => 'images', 'name' => 'images[]', 'type' => 'hidden']); ?>
     <?= form_error('images', '<div class="text-danger">', '</div>'); ?>

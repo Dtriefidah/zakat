@@ -177,6 +177,8 @@ class Pages_Model extends CI_Model
         return [
             'default' => lang('default'),
             'contact_us' => lang('contact_us'),
+            'zakat_fitrah' => lang('zakat_fitrah'),
+            'zakat_maal' => lang('zakat_maal'),
         ];
     }
 
