@@ -46,9 +46,10 @@ class Products_Model extends CI_Model
     /**
      * @param array $params
      * [
-     *      'type' => 'Zakat Agriculture' / 'Zakat Farm Animals' / 'Zakat Gold and Silver' / 'Zakat Money' / 'Zakat Rikaz' / 'Zakat Trading',
+     *      'type' => 'zakat_fitrah' / 'zakat_maal_agriculture' / 'zakat_maal_farm_animals' / 'zakat_maal_gold_and_silver' / 'zakat_maal_money' / 'zakat_maal_rikaz' / 'zakat_maal_trading'
      *      'name' => 'name',
      *      'price' => '1',
+     *      'content' => 'content,'
      *      'images' => ['images'],
      * ]
      * @return integer $id
@@ -59,6 +60,7 @@ class Products_Model extends CI_Model
         if (isset($params['type'])) { $data['type'] = $params['type']; }
         if (isset($params['name'])) { $data['name'] = $params['name']; }
         if (isset($params['price'])) { $data['price'] = $params['price']; }
+        if (isset($params['content'])) { $data['content'] = $params['content']; }
 
         $this->db->insert($this->table, $data);
         $id = $this->db->insert_id();
@@ -161,7 +163,7 @@ class Products_Model extends CI_Model
     /**
      * @param array $params
      * [
-     *      'type' => 'Zakat Agriculture' / 'Zakat Farm Animals' / 'Zakat Gold and Silver' / 'Zakat Money' / 'Zakat Rikaz' / 'Zakat Trading',
+     *      'type' => 'zakat_fitrah' / 'zakat_maal_agriculture' / 'zakat_maal_farm_animals' / 'zakat_maal_gold_and_silver' / 'zakat_maal_money' / 'zakat_maal_rikaz' / 'zakat_maal_trading'
      *      'name' => 'name',
      *      'price' => '1',
      *      'images' => ['images'],
@@ -176,6 +178,7 @@ class Products_Model extends CI_Model
             $data['slug'] = url_title($params['name'].' '.$params['id'], '-', true);
         }
         if (isset($params['price'])) { $data['price'] = $params['price']; }
+        if (isset($params['content'])) { $data['content'] = $params['content']; }
         if (isset($params['images'])) { $data['images'] = $this->file_upload($params['images'], $this->upload->products_path.'/'.$params['id']); }
 
         $this->db->where('id', $params['id']);
@@ -194,7 +197,7 @@ class Products_Model extends CI_Model
             'zakat_maal_rikaz' => lang('zakat_maal_rikaz'),
             'zakat_maal_trading' => lang('zakat_maal_trading'),
         ];
-        sort($type_options);
+        asort($type_options);
         return $type_options;
     }
 }
