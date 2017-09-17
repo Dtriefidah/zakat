@@ -57,6 +57,7 @@ $lang = [
     'products' => 'Produk',
     'profile' => 'Profil',
     'program_activities' => 'Program Kegiatan',
+    'quantity' => 'Kuantitas',
     'question' => 'Pertanyaan',
     'question_has_been_created' => 'Pertanyaan telah dibuat',
     'question_has_been_replied' => 'Pertanyaan telah dibalas',

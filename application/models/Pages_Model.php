@@ -174,12 +174,18 @@ class Pages_Model extends CI_Model
 
     public function template_options()
     {
-        return [
-            'default' => lang('default'),
-            'contact_us' => lang('contact_us'),
+        $template_options = [
             'zakat_fitrah' => lang('zakat_fitrah'),
-            'zakat_maal' => lang('zakat_maal'),
+            'zakat_maal_agriculture' => lang('zakat_maal_agriculture'),
+            'zakat_maal_farm_animals' => lang('zakat_maal_farm_animals'),
+            'zakat_maal_gold_and_silver' => lang('zakat_maal_gold_and_silver'),
+            'zakat_maal_money' => lang('zakat_maal_money'),
+            'zakat_maal_rikaz' => lang('zakat_maal_rikaz'),
+            'zakat_maal_trading' => lang('zakat_maal_trading'),
         ];
+        asort($template_options);
+        $template_options = ['default' => lang('default')] + $template_options;
+        return $template_options;
     }
 
     /**

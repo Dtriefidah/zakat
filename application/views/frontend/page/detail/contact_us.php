@@ -50,7 +50,7 @@
                         <?= form_textarea(['class' => 'form-control md-textarea', 'id' => 'message', 'name' => 'message', 'required' => true, 'rows' => 5, 'value' => set_value('message')]); ?>
                         <?= form_error('message', '<h6 class="text-danger"><small>', '</small></h6>'); ?>
                     </div>
-                    <button class="btn btn-block indigo" name="sign_in" type="submit"><?= lang('send'); ?><i class="fa fa-paper-plane-o ml-1"></i></button>
+                    <button class="btn btn-block btn-warning" name="send" type="submit" value="send"><?= lang('send'); ?><i class="fa fa-paper-plane-o ml-1"></i></button>
                     <?= form_close(); ?>
                 </div>
             </div>

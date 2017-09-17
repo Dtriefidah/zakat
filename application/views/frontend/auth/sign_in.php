@@ -19,10 +19,10 @@
             <?= form_error('password', '<h6 class="text-danger"><small>', '</small></h6>'); ?>
         </div>
     </div>
-    <div class="card-footer text-muted white-text">
-        <?= form_submit(['class' => 'btn btn-block indigo', 'name' => 'sign_in', 'value' => lang('sign_in')]); ?>
+    <div class="card-footer">
+        <?= form_submit(['class' => 'btn btn-block btn-warning', 'name' => 'sign_in', 'value' => lang('sign_in')]); ?>
     </div>
-    <div class="card-footer text-muted white-text">
+    <div class="card-footer">
         <?= anchor('auth/forget_password', lang('forget_password').'?'); ?><br />
         <?= anchor('', lang('back')); ?>
     </div>

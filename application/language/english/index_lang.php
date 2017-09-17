@@ -57,6 +57,7 @@ $lang = [
     'products' => 'Products',
     'profile' => 'Profile',
     'program_activities' => 'Program Activities',
+    'quantity' => 'Quantity',
     'question' => 'Question',
     'question_has_been_created' => 'Question has been created',
     'question_has_been_replied' => 'Question has been replied',

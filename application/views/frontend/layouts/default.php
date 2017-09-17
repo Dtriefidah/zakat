@@ -69,8 +69,15 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= lang('calculator'); ?></a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Zakat Fitrah</a>
-                            <a class="dropdown-item" href="#">Zakat Mal</a>
+                            <a class="dropdown-item" href="<?= site_url('page/zakat-fitrah'); ?>"><?= lang('zakat_fitrah'); ?></a>
+                            <a class="dropdown-item" href="<?= site_url('page/zakat-maal'); ?>"><?= lang('zakat_maal'); ?></a>
+
+                            <a class="dropdown-item" href="<?= site_url('page/zakat-maal-emas-dan-perak'); ?>"><?= lang('zakat_maal_gold_and_silver'); ?></a>
+                            <a class="dropdown-item" href="<?= site_url('page/zakat-maal-uang'); ?>"><?= lang('zakat_maal_money'); ?></a>
+                            <a class="dropdown-item" href="<?= site_url('page/zakat-maal-perdagangan'); ?>"><?= lang('zakat_maal_trading'); ?></a>
+                            <a class="dropdown-item" href="<?= site_url('page/zakat-maal-pertanian'); ?>"><?= lang('zakat_maal_agriculture'); ?></a>
+                            <a class="dropdown-item" href="<?= site_url('page/zakat-maal-hewan-ternak'); ?>"><?= lang('zakat_maal_farm_animals'); ?></a>
+                            <a class="dropdown-item" href="<?= site_url('page/zakat-maal-rikaz'); ?>"><?= lang('zakat_maal_rikaz'); ?></a>
                         </div>
                     </li>
                     <li class="nav-item">

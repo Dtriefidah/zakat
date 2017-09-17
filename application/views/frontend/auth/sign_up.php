@@ -24,9 +24,9 @@
             <?= form_error('password', '<h6 class="text-danger"><small>', '</small></h6>'); ?>
         </div>
     </div>
-    <div class="card-footer text-muted white-text">
-        <?= form_submit(['class' => 'btn btn-block indigo', 'name' => 'sign_up_account', 'value' => lang('sign_up_account')]); ?>
+    <div class="card-footer">
+        <?= form_submit(['class' => 'btn btn-block btn-warning', 'name' => 'sign_up_account', 'value' => lang('sign_up_account')]); ?>
     </div>
-    <div class="card-footer text-muted white-text"><?= anchor('', lang('back')); ?></div>
+    <div class="card-footer"><?= anchor('', lang('back')); ?></div>
     <?= form_close(); ?>
 </div>
