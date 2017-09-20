@@ -21,13 +21,13 @@ Done :
 - Frontend Tampilan Home 
 - Frontend Tampilan Profil (Sejarah, Visi dan Misi, Program Kegiatan, Landasan Legal)
 - Frontend Tampilan Contact
-
+- Rapikan folder image
 
 Undone : 
-- Rapikan folder image
+- Q&A ditambah list jumlah balasannya
 - Frontend Tampilan Info (info Zakat, Berita dan Majalah) 
+- Frontend Tampilan Calculator Zakat Fitrah 
+- Frontend Tampilan Calculator Zakat Mal (Zakat emas dan Perak, Zakat Uang, Zakat Perdagangan, Zakat Pertanian, Zakat Hewan ternak, Zakat Rikaz) 
 - Backend Master Transactions 
 - Backend Master Transactions Detail 
 - Backend Report
-- Frontend Tampilan Calculator Zakat Fitrah 
-- Frontend Tampilan Calculator Zakat Mal (Zakat emas dan Perak, Zakat Uang, Zakat Perdagangan, Zakat Pertanian, Zakat Hewan ternak, Zakat Rikaz) 
